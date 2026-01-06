@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Creditação - InfoAlunos</title>
+  <link rel="stylesheet" href="novoprocesso.css">
+</head>
+<body>
+
+<header>
+    <div class="brand">
+        <img src="logo1.png" alt="Logotipo UMa" class="logo-img" />
+        <div>
+        <div class="brand-logo">UNIVERSIDADE da MADEIRA</div>
+        <div class="brand-title">InfoAlunos - Serviço de Informação dos Alunos</div>
+        </div>
+    </div>
+
+    <nav class="navbar" aria-label="Navegação principal">
+        <a href="Inicio (dashboard).html" aria-current="page">Início</a>
+        <a href="inqueritos.html">Inquéritos</a>
+        <a href="docacdemicos.html">Documentos</a>
+        <a href="cartao.html">Perfil</a>
+    </nav>
+
+    <div class="header-right">
+        <div class="theme-toggle" aria-label="Alternar tema">
+        <input type="checkbox" id="theme-switch" hidden />
+        <label for="theme-switch" class="toggle-label">
+            <span class="toggle-bg"></span>
+            <span class="toggle-knob"></span>
+        </label>
+        </div>
+
+        <div class="avatar" aria-label="Avatar do utilizador">TU</div>
+    </div>
+    </header>
+
+
+<div class="layout">
+
+       <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="Inicio (dashboard).html">Início</a></li>
+
+            <li class="has-submenu">
+                <a href="#">Geral</a>
+                <ul class="submenu">
+                    <li><a href="processos.html">Processos</a></li>
+                    <li><a href="dadospessoais.html">Dados Pessoais</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Serviços</a>
+                <ul class="submenu">
+                    <li><a href="pagamentos.html">Pagamentos</a></li>
+                    <li><a href="matriculainscriçao.html">Matrícula/Inscrição</a></li>
+                    <li><a href="inscriçaoturma.html">Inscrição em turmas</a></li>
+                    <li><a href="requerimentos.html">Requerimentos</a></li>
+                    <li><a href="cartao.html">Cartão Universitário</a></li>
+                    <li><a href="https://www.uma.pt/sobre/servico-apoio-estudantes/accao-social/?IDM=PT&ID0=1767623813&ID1=&ID2=500&ID3=77f0190e4a58afeeac3ae2b2c09f0cb0">SASUMa - Bolsas</a></li> <!-- link externo do infoalunos  -->
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Concursos</a>
+                <ul class="submenu">
+                    <li><a href="candidaturas.html">Candidaturas</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Avaliação</a>
+                <ul class="submenu">
+                    <li><a href="Pautas.html">Pautas</a></li>
+                    <li><a href="Reclamaçoesnota.html">Reclamações de notas</a></li>
+                    <li><a href="inqueritos.html">Inquéritos</a></li>
+                    <li><a href="Resultadoinqueritos.html">Resultado dos inquéritos</a></li>
+                    <li><a href="inqueritoraides.html">Inquérito RAIDES</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Creditações</a>
+                <ul class="submenu">
+                    <li><a href="listadeprocessos.html">Lista de Processos</a></li>
+                    <li><a href="novoprocesso.html">Novo Processo</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Documentos</a>
+                <ul class="submenu">
+                    <li><a href="docacdemicos.html">Académicos</a></li>
+                    <li><a href="docdeclaraçoes.html">Declarações</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Aula</a>
+                <ul class="submenu">
+                    <li><a href="presença.html">Marcar presença</a></li>
+                    <li><a href="calendario.html">Calendário</a></li>
+                    <li><a href="sumario.html">Sumários</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Disciplina</a>
+                <ul class="submenu">
+                    <li><a href="ficha.html">Ficha</a></li>
+                    <li><a href="ficha.html">Programa</a></li>   <!-- o CONTEÚDO e o mesmo que esta na ficha mas na parte do menu programa provalmente e preciso javascript  -->
+                    <li><a href="ficheiros.html">Ficheiros</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Curso</a>
+                <ul class="submenu">
+                    <li><a href="Fichacurricular.html">Ficha curricular</a></li>
+                    <li><a href="horarios.html">Horários</a></li>
+                    <li><a href="historicomatriculas.html">Histórico de matrículas</a></li>
+                    <li><a href="historicodisplinasaprov.html">Histórico de Disciplinas Aprovadas</a></li>
+                    <li><a href="bolonha.html">Transição para a Bolonha</a></li>
+                    <li><a href="planconclusao.html">Plano de Conclusão</a></li>
+                    <li><a href="Prescrição.html">Quadro de Prescrição</a></li>
+                    <li><a href="Atividadesacadm.html">Atividades Académicas do Aluno</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Instituição</a>
+                <ul class="submenu">
+                    <li><a href="#">Estrutura Orgânica</a></li>
+                </ul>
+            </li>
+
+            <li><a href="Eleiçoes.html">Eleições</a></li>
+        </ul>
+    </aside>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div class="container">
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active" onclick="openTab('novo', this)">Novo / Alterar</button>
+      <button class="tab" onclick="openTab('plano', this)">Plano de Formação</button>
+      <button class="tab" onclick="openTab('docs', this)">Documentos e Histórico</button>
+    </div>
+
+    <!-- BARRA AMARELA -->
+    <div class="yellow-bar">
+      <a href="#">Preçário</a>
+      <a href="#">Ajuda e Descrição do Processo</a>
+      <a href="#">Voltar à Lista</a>
+    </div>
+
+    <!-- TAB: NOVO -->
+    <div id="novo" class="tab-content active">
+      <div class="box grid-2">
+        <div>
+          
+          <select></select>
+
+          <label>Curso (a creditar):*</label>
+          <select></select>
+
+          <label>Alterar Estado/Pedido:</label>
+          <select></select>
+        </div>
+
+        <div>
+          <label>Justificação Actual:</label>
+          <input type="text" value="info" disabled>
+
+          <label>Justificação para alterar estado:</label>
+          <textarea></textarea>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Formação Académica Original</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>Inst.</th><th>Curso</th><th>Ano Letivo</th><th>Área</th><th>Nível</th><th>Class.</th><th>ECTS</th><th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">"E": Formação Externa. Quando tem esta indicação a formação não é da Universidade da Madeira e deve ser verificada.</p>
+      </div>
+
+      <div class="box">
+        <h3>Formação Não Académica</h3>
+        <label>Descrição:</label>
+        <input type="text">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>Prog.</th><th>Ano Letivo</th><th>Área</th><th>Nível</th><th>ECTS</th><th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box">
+        <h3>Módulos / Trabalhos - <span class="small">RESERVADO AOS SERVIÇOS</span></h3>
+        <label>Descrição:</label>
+        <input type="text">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>Prog.</th><th>Ano Letivo</th><th>Área</th><th>Nível</th><th>Class.</th><th>ECTS</th><th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+              <td><input></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box">
+        <label>Anexar Documento 1:</label><input type="file">
+        <label>Anexar Documento 2:</label><input type="file">
+        <label>Anexar Documento 3:</label><input type="file">
+        <p class="note">Os campos assinalados com * são de preenchimento obrigatório.</p>
+      </div>
+
+      <div class="actions">
+        <button class="save-btn">Guardar Processo</button>
+      </div>
+    </div>
+
+    <!-- TAB: PLANO -->
+    <div id="plano" class="tab-content">
+      <div class="box">
+        Sem resultados. Selecione um processo de creditação.
+      </div>
+    </div>
+
+    <!-- TAB: DOCUMENTOS -->
+    <div id="docs" class="tab-content">
+      <div class="box">Histórico dos Estados do Processo</div>
+      <div class="box">Emolumentos do Processo</div>
+      <div class="box">
+        Documentos Associados ao Processo<br>
+        Não foram encontrados ficheiros ou não seleccionou um processo.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-left">
+        <img src="logo1.png" alt="Logotipo da Universidade da Madeira" class="footer-logo">
+        <span>Universidade da Madeira</span>
+    </div>
+
+    <nav class="footer-nav">
+        <a href="404.html">Erro</a>
+    </nav>
+</footer>
+
+
+<script>
+function openTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const parent = link.parentElement;
+    parent.classList.toggle('open');
+    const submenu = parent.querySelector('.submenu');
+    submenu.style.display = parent.classList.contains('open') ? 'block' : 'none';
+  });
+});
+</script>
+
+</body>
+</html>

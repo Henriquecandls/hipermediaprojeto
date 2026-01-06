@@ -1,0 +1,367 @@
+/* =====================================================
+   VARIÁVEIS (LIGHT / DARK)
+===================================================== */
+:root {
+  --blue: #0f77a8;
+  --blue-dark: #0b6b95;
+
+  --bg: #f4f6f8;
+  --panel-bg: #ffffff;
+  --sidebar-bg: #e6e6e6;
+
+  --border: #d0d0d0;
+  --text: #222;
+  --muted: #666;
+  --accent: #e67e22;
+}
+
+/* DARK MODE */
+body:has(#theme-switch:checked) {
+  --bg: #121212;
+  --panel-bg: #1f1f1f;
+  --sidebar-bg: #1a1a1a;
+
+  --border: #333;
+  --text: #eaeaea;
+  --muted: #aaa;
+}
+
+/* =====================================================
+   RESET + BASE
+===================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Segoe UI, Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* =====================================================
+   HEADER (FIXO, IGUAL AO fix.css)
+===================================================== */
+.header {
+  height: 72px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* ESQUERDA */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-left img {
+  height: 40px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.uma-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.uma-subtitle {
+  font-size: 13px;
+  opacity: .9;
+}
+
+/* DIREITA */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* LINKS COM ANIMAÇÃO */
+.header-right a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity .25s ease;
+}
+
+.header-right a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width .3s ease;
+}
+
+.header-right a:hover {
+  opacity: .85;
+}
+
+.header-right a:hover::after {
+  width: 100%;
+}
+
+/* AVATAR */
+.user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--blue);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =====================================================
+   TOGGLE DARK MODE
+===================================================== */
+.theme-switch {
+  position: relative;
+  width: 46px;
+  height: 24px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #cfd8dc;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: .25s;
+}
+
+.theme-switch input:checked + .slider {
+  background: var(--blue-dark);
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+.sidebar {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 230px;
+  height: calc(100vh - 72px);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+}
+
+.sidebar ul { list-style: none; }
+.sidebar li { border-bottom: 1px solid var(--border); }
+
+.sidebar a {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 18px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background .2s;
+}
+
+.sidebar a:hover {
+  background: rgba(15,119,168,.12);
+}
+
+.has-submenu > a::after {
+  content: "▸";
+  transition: transform .2s;
+}
+
+.has-submenu.open > a::after {
+  transform: rotate(90deg);
+  color: var(--blue);
+}
+
+.submenu {
+  display: none;
+  background: var(--panel-bg);
+  border-left: 3px solid var(--blue);
+}
+
+.has-submenu.open .submenu {
+  display: block;
+}
+
+.submenu a {
+  padding-left: 28px;
+  font-size: 14px;
+}
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+.content-area {
+  margin-left: 230px;
+  margin-top: 72px;
+  padding: 20px;
+   flex: 1;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================================================
+   TABS
+===================================================== */
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+}
+
+.tab-link {
+  padding: 10px 25px;
+  background: #e0e0e0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.tab-link.active {
+  background: var(--panel-bg);
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.tab-content-wrapper {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* =====================================================
+   ALERTA
+===================================================== */
+.alert-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.icon-error {
+  color: red;
+  font-size: 20px;
+}
+
+/* =====================================================
+   FORMULÁRIOS
+===================================================== */
+select, button {
+  padding: 6px;
+  border: 1px solid var(--border);
+}
+
+button {
+  background: var(--blue);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--blue-dark);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+  margin-left: 230px;          /* alinha com o conteúdo (fora da sidebar) */
+  padding: 14px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--panel-bg);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 13px;
+  color: var(--text);
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  height: 28px;
+}
+
+.footer-nav a {
+  margin-left: 14px;
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 13px;
+  transition: opacity .2s;
+}
+
+.footer-nav a:hover {
+  opacity: .8;
+}
+
+
+/* =====================================================
+   ACESSIBILIDADE (WCAG 2.1)
+===================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}

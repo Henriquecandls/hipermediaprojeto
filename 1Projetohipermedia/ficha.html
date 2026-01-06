@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfoAlunos - Ficha da Disciplina</title>
+  <link rel="stylesheet" href="ficha.css">
+  <link rel="stylesheet" href="base.css">
+</head>
+<body>
+
+ <header>
+    <div class="brand">
+        <img src="logo1.png" alt="Logotipo UMa" class="logo-img" />
+        <div>
+        <div class="brand-logo">UNIVERSIDADE da MADEIRA</div>
+        <div class="brand-title">InfoAlunos - Serviço de Informação dos Alunos</div>
+        </div>
+    </div>
+
+    <nav class="navbar" aria-label="Navegação principal">
+        <a href="Inicio (dashboard).html" aria-current="page">Início</a>
+        <a href="inqueritos.html">Inquéritos</a>
+        <a href="docacdemicos.html">Documentos</a>
+        <a href="cartao.html">Perfil</a>
+    </nav>
+
+    <div class="header-right">
+        <div class="theme-toggle" aria-label="Alternar tema">
+        <input type="checkbox" id="theme-switch" hidden />
+        <label for="theme-switch" class="toggle-label">
+            <span class="toggle-bg"></span>
+            <span class="toggle-knob"></span>
+        </label>
+        </div>
+
+        <div class="avatar" aria-label="Avatar do utilizador">TU</div>
+    </div>
+    </header>
+<div class="container">
+       <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="Inicio (dashboard).html">Início</a></li>
+
+            <li class="has-submenu">
+                <a href="#">Geral</a>
+                <ul class="submenu">
+                    <li><a href="processos.html">Processos</a></li>
+                    <li><a href="dadospessoais.html">Dados Pessoais</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Serviços</a>
+                <ul class="submenu">
+                    <li><a href="pagamentos.html">Pagamentos</a></li>
+                    <li><a href="matriculainscriçao.html">Matrícula/Inscrição</a></li>
+                    <li><a href="inscriçaoturma.html">Inscrição em turmas</a></li>
+                    <li><a href="requerimentos.html">Requerimentos</a></li>
+                    <li><a href="cartao.html">Cartão Universitário</a></li>
+                    <li><a href="https://www.uma.pt/sobre/servico-apoio-estudantes/accao-social/?IDM=PT&ID0=1767623813&ID1=&ID2=500&ID3=77f0190e4a58afeeac3ae2b2c09f0cb0">SASUMa - Bolsas</a></li> <!-- link externo do infoalunos  -->
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Concursos</a>
+                <ul class="submenu">
+                    <li><a href="candidaturas.html">Candidaturas</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Avaliação</a>
+                <ul class="submenu">
+                    <li><a href="Pautas.html">Pautas</a></li>
+                    <li><a href="Reclamaçoesnota.html">Reclamações de notas</a></li>
+                    <li><a href="inqueritos.html">Inquéritos</a></li>
+                    <li><a href="Resultadoinqueritos.html">Resultado dos inquéritos</a></li>
+                    <li><a href="inqueritoraides.html">Inquérito RAIDES</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Creditações</a>
+                <ul class="submenu">
+                    <li><a href="listadeprocessos.html">Lista de Processos</a></li>
+                    <li><a href="novoprocesso.html">Novo Processo</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Documentos</a>
+                <ul class="submenu">
+                    <li><a href="docacdemicos.html">Académicos</a></li>
+                    <li><a href="docdeclaraçoes.html">Declarações</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Aula</a>
+                <ul class="submenu">
+                    <li><a href="presença.html">Marcar presença</a></li>
+                    <li><a href="calendario.html">Calendário</a></li>
+                    <li><a href="sumario.html">Sumários</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Disciplina</a>
+                <ul class="submenu">
+                    <li><a href="ficha.html">Ficha</a></li>
+                    <li><a href="ficha.html">Programa</a></li>   <!-- o CONTEÚDO e o mesmo que esta na ficha mas na parte do menu programa provalmente e preciso javascript  -->
+                    <li><a href="ficheiros.html">Ficheiros</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Curso</a>
+                <ul class="submenu">
+                    <li><a href="Fichacurricular.html">Ficha curricular</a></li>
+                    <li><a href="horarios.html">Horários</a></li>
+                    <li><a href="historicomatriculas.html">Histórico de matrículas</a></li>
+                    <li><a href="historicodisplinasaprov.html">Histórico de Disciplinas Aprovadas</a></li>
+                    <li><a href="bolonha.html">Transição para a Bolonha</a></li>
+                    <li><a href="planconclusao.html">Plano de Conclusão</a></li>
+                    <li><a href="Prescrição.html">Quadro de Prescrição</a></li>
+                    <li><a href="Atividadesacadm.html">Atividades Académicas do Aluno</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Instituição</a>
+                <ul class="submenu">
+                    <li><a href="#">Estrutura Orgânica</a></li>
+                </ul>
+            </li>
+
+            <li><a href="Eleiçoes.html">Eleições</a></li>
+        </ul>
+    </aside>
+
+  <main>
+    <section class="card search-card">
+      <h2>Pesquisa de Disciplinas</h2>
+      <div class="search-grid">
+        <select id="disciplina" name="disciplina">
+          <option value="dw-backend-s2">Desenvolvimento Web - Back-End_CTeSP_TPSI [ S2 ]</option>
+          <option value="dw-frontend-s2">Desenvolvimento Web - Front-End_CTeSP_TPSI [ S2 ]</option>
+          <option value="design-hipermedia-s1" selected>Design Hipermédia_CTeSP_TPSI [ S1 ]</option>
+          <option value="ingles-tecnico-s2">Inglês Técnico_CTeSP_TPSI [ S2 ]</option>
+          <option value="intro-programacao-s1">Introdução à Programação_CTeSP_TPSI [ S1 ]</option>
+          <option value="matematica-s1">Matemática_CTeSP_TPSI [ S1 ]</option>
+          <option value="poo-s2">Programação Orientada por Objetos_CTeSP_TPSI [ S2 ]</option>
+          <option value="sgbd-s2">Sistemas Gestores de Bases de Dados_CTeSP_TPSI [ S2 ]</option>
+          <option value="sor-s1">Sistemas Operativos e Redes_CTeSP_TPSI [ S1 ]</option>
+          <option value="tep-s1">Técnicas de Expressão do Português_CTeSP_TPSI [ S1 ]</option>
+        </select>
+        
+        <button type="button" class="btn primary">Pesquisar...</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Lista de Disciplinas</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">AL</th>
+              <th scope="col">Course</th>
+              <th scope="col">Curso</th>
+              <th scope="col">Especialidade</th>
+              <th scope="col">ALP</th>
+              <th scope="col">S</th>
+              <th scope="col">UC</th>
+              <th scope="col">CH</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025/26</td>
+              <td>Design Hipermédia</td>
+              <td>Tec Pro Sis Inf</td>
+              <td><a href="#">S/Ramos - Esp.</a></td>
+              <td>2020/21</td>
+              <td>S1</td>
+              <td>6.50</td>
+              <td>182.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-legend">
+        <strong>AL</strong> - Ano Lectivo |
+        <strong>ALP</strong> - Ano Lectivo do Plano |
+        <strong>S</strong> - Semestre |
+        <strong>UC</strong> - Unidades de Crédito |
+        <strong>CH</strong> - Carga Horária
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="tabs">
+        <button class="tab active" data-tab="1">Objectivos / Avaliação</button>
+        <button class="tab" data-tab="2">Bibliografia</button>
+        <button class="tab" data-tab="3">Programa</button>
+        <button class="tab" data-tab="4">Outros Dados</button>
+        <button class="tab" data-tab="5">Corpo Docente</button>
+        <button class="tab" data-tab="6">Documentos</button>
+      </div>
+
+      <div class="tab-content">
+        <div class="content-panel active" id="tab1">
+          <h3>Objectivos da Disciplina:</h3>
+          <div class="two-columns">
+            <div class="gray-box">
+              <h4>Português</h4>
+              <ol>
+                <li>Compreender a conexão de multimédia e hipermedia.</li>
+                <li>Compreender o processo de desejo para contextos e dispositivos específicos.</li>
+                <li>Conhecer os conceitos de normas e atividades para a web.</li>
+                <li>Conhecer métodos para a organização e gestão de conteúdos web.</li>
+                <li>Adquirir as opções de desejo, tecnologias e subsidiárias na web.</li>
+                <li>Identificar os princípios básicos para desenvolvimento de websites.</li>
+                <li>Desenvolver competências para criação de websites com recursos a linguagens de apresentação e formatação.</li>
+                <li>Conhecer técnicas básicas para a manipulação do DOM.</li>
+              </ol>
+            </div>
+            <div class="gray-box">
+              <h4>Inglês</h4>
+              <ol>
+                <li>Understand the concept of multimedia and hypermedia.</li>
+                <li>Understand the design process for specific contexts and devices.</li>
+                <li>Know the concepts of norms and standards for the web.</li>
+                <li>Know methods for expanding and managing web content.</li>
+                <li>Acquire the notions of design, technologies and stability on the web.</li>
+                <li>Identify the basic principles for website development.</li>
+                <li>Develop skills for creating websites using presentation and formatting languages.</li>
+                <li>Know basic techniques for DOM manipulation.</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div class="criteria-section">
+            <h3>Critérios de avaliação:</h3>
+            <p><strong>Português:</strong></p>
+            <p>Tan de Classificacao Quantitativa (0-20)<br>
+            Metodologia de Avaliação: De acordo com o previsto para os Cursos Técnicos Superiores Profissionais.</p>
+            
+            <p><strong>Inglês:</strong></p>
+            <p>Classification Quantitative Scale (0-20)<br>
+            Evaluation Methodology: In accordance with the expected for the Professional Higher Technical Courses.</p>
+          </div>
+        </div>
+
+        <div class="content-panel" id="tab2">
+          <h3>Bibliografia Principal:</h3>
+          <div class="gray-box">
+            <p>Biblioma J. H., (2018). Learning Web Design, © Billy.</p>
+            <p>Dedette J. (2011). HTML & CSS: Design and Build websites. John Wiley & Sons.</p>
+          </div>
+          
+          <h3>Outras Fontes Bibliográficas/ Documentos de Apoio:</h3>
+          <div class="gray-box">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Relatórios - comentário</th>
+                  <th>EQUIPAÇÃO DE TRANSPECÇÕES</th>
+                  <th>Importantes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="content-panel" id="tab3">
+          <h3>Programa resumido:</h3>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Tópico (Português)</th>
+                  <th>Topic (English)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>Percejava de design hiperinédio</td><td>Hiperinédio design percepto</td></tr>
+                <tr><td>2</td><td>Desenvolvendo com linguagens de apresentação</td><td>Development with presentation languages</td></tr>
+                <tr><td>3</td><td>Procedimentos de maturação semântica de contextos</td><td>Procedures for semantic content marking</td></tr>
+                <tr><td>4</td><td>Desenvolvimento com linguagens de formatação</td><td>Development with formatting languages</td></tr>
+                <tr><td>5</td><td>Confortado de entrevistas de display respetuoso e/ou adaptativo</td><td>Adoptando os respostos anotar adaptivo design strategies</td></tr>
+                <tr><td>6</td><td>Configurando os animais de desenvolvimento para a Utilização da linguagem de templating</td><td>Configurando uma development environment for the use of templating languages</td></tr>
+                <tr><td>7</td><td>Manipulação do DOM com javascript</td><td>DOM manipulation with javascript</td></tr>
+                <tr><td>8</td><td>Percejava de UXAU</td><td>Percejava of UXAU</td></tr>
+                <tr><td>9</td><td>Implementação de um website</td><td>Implementation of a website</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="content-panel" id="tab4">
+          <h3>Outros Dados</h3>
+          <div class="gray-box">
+            <p><strong>Página Web:</strong> <a href="http://www.uma.pt/" target="_blank">http://www.uma.pt/</a></p>
+            
+            <p><strong>Atendimento (Português):</strong></p>
+            <p>Atendimento aos alunos decorre às terças-feiras, das 18h00 às 20h00</p>
+            
+            <p><strong>Atendimento (English):</strong></p>
+            <p>Student office hours take place on Tuesdays, from 6:00 PM to 8:00 PM</p>
+            
+            <p><strong>Observações:</strong></p>
+            <p></p>
+            
+            <p><strong>Observations (English):</strong></p>
+            <p></p>
+          </div>
+        </div>
+
+        <div class="content-panel" id="tab5">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Docente</th>
+                  <th>Centro</th>
+                  <th>Função</th>
+                  <th>Email</th>
+                  <th>Extensão</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Beatriz Rodrigues Jardim Rino Peres</td>
+                  <td>Escola Superior de Tecnologias e Gestão</td>
+                  <td>Ensino teórico-prático</td>
+                  <td>beatriz.peres@staff.uma.pt</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Frederica Margarida Camacho Gonçalves</td>
+                  <td>Escola Superior de Tecnologias e Gestão</td>
+                  <td>Ensino teórico-prático</td>
+                  <td>frederica.goncalves@staff.uma.pt</td>
+                  <td>5035</td>
+                </tr>
+                <tr>
+                  <td>Marco Miguel de Olival Olim</td>
+                  <td>Escola Superior de Tecnologias e Gestão</td>
+                  <td>Ensino teórico-prático</td>
+                  <td>molim@staff.uma.pt</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Beatriz Rodrigues Jardim Rino Peres</td>
+                  <td>Escola Superior de Tecnologias e Gestão</td>
+                  <td>Horas de Aplicação</td>
+                  <td>beatriz.peres@staff.uma.pt</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Frederica Margarida Camacho Gonçalves</td>
+                  <td>Escola Superior de Tecnologias e Gestão</td>
+                  <td>Horas de Aplicação</td>
+                  <td>frederica.goncalves@staff.uma.pt</td>
+                  <td>5035</td>
+                </tr>
+                <tr>
+                  <td>Marco Miguel de Olival Olim</td>
+                  <td>Escola Superior de Tecnologias e Gestão</td>
+                  <td>Horas de Aplicação</td>
+                  <td>molim@staff.uma.pt</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Marco Miguel de Olival Olim</td>
+                  <td>Escola Superior de Tecnologias e Gestão</td>
+                  <td>Regência</td>
+                  <td>molim@staff.uma.pt</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Marco Miguel de Olival Olim</td>
+                  <td>Escola Superior de Tecnologias e Gestão</td>
+                  <td>Responsável pelas Pautas</td>
+                  <td>molim@staff.uma.pt</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+       <div class="content-panel" id="tab6">
+  <div class="documents-toolbar">
+    <div class="toolbar-row">
+      <label><strong>Relatório a imprimir:</strong></label>
+      <select>
+        <option value="ficha">Ficha(s) de Disciplina(s)</option>
+        <option value="programa">Programa da Disciplina</option>
+        <option value="frequencia">Ficha de Frequência</option>
+        <option value="notas">Notas por Disciplina</option>
+      </select>
+      <button class="btn">Imprimir</button>
+    </div>
+
+    <div class="toolbar-row">
+      <label><strong>Filtrar por Categoria:</strong></label>
+      <select>
+        <option value="">Selecione...</option>
+        <option value="aulas">Aulas</option>
+        <option value="trabalhos">Trabalhos</option>
+        <option value="exames">Exames</option>
+        <option value="notas">Notas</option>
+      </select>
+      <button class="btn">Filtrar Lista</button>
+    </div>
+  </div>
+
+  <div class="documents-actions">
+    <a href="#" class="btn-link">[ Gerir Ficheiros da Disciplina ]</a>
+  </div>
+
+  <div class="info-message">
+    <span class="info-icon">ℹ️</span>
+    Não foram encontrados ficheiros para a seleção efectuada ou não escolheu uma disciplina.
+  </div>
+</div>
+      </div>
+    </section>
+  </main>
+</div>
+    <footer class="footer">
+  <div class="footer-left">
+    <img src="logo1.png" alt="Logotipo UMa" class="footer-logo">
+    <span>Universidade da Madeira — InfoAlunos</span>
+  </div>
+  <nav class="footer-nav">
+    <a href="404.html">Erro?</a>
+    <a href="#">Contactos</a>
+    <a href="#">Termos</a>
+  </nav>
+</footer>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.content-panel');
+
+tabs.forEach(t => {
+  t.onclick = () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('tab' + t.dataset.tab).classList.add('active');
+  };
+});
+
+document.querySelectorAll('.has-submenu > a').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const parent = link.parentElement;
+        parent.classList.toggle('open');
+        const submenu = parent.querySelector('.submenu');
+        if(submenu) submenu.style.display = parent.classList.contains('open') ? 'block' : 'none';
+    });
+});
+</script>
+
+</body>
+</html>

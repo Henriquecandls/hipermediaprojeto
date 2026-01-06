@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - InfoAlunos</title>
+        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="base.css">
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Saltar para conteúdo</a>
+    <header class="header" role="banner">
+        <div class="brand"><img src="logo.png" alt="UMa" class="logo"><span>InfoAlunos</span></div>
+        <nav class="main-nav" aria-label="Navegação principal">
+            <a href="Inicio (dashboard).html">Início</a>
+            <a href="requerimentos.html">Requerimentos</a>
+            <a href="ajuda.html">Ajuda</a>
+        </nav>
+    </header>
+
+    <main id="main" class="page-grid">
+        <aside class="sidebar" aria-label="Menu lateral">
+            <ul>
+                <li><a href="Inicio (dashboard).html">Início</a></li>
+                <li><a href="requerimentos.html">Requerimentos</a></li>
+            </ul>
+        </aside>
+
+        <section class="content" aria-labelledby="login-title">
+            <h1 id="login-title">Entrar</h1>
+            <form novalidate aria-describedby="login-desc" class="auth-form" method="post" action="#">
+                <p id="login-desc" class="hint">Use as credenciais da universidade.</p>
+
+                <label for="num">Nº de Aluno</label>
+                <input id="num" name="num" type="text" pattern="\d+" required placeholder="Nº de Aluno" aria-required="true">
+
+                <label for="pass">Palavra-passe</label>
+                <input id="pass" name="pass" type="password" required minlength="8" placeholder="mínimo 8 caracteres" aria-required="true">
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-uma">Entrar</button>
+                    <a href="register.html" class="hint">Criar conta</a>
+                </div>
+            </form>
+
+            <details>
+                <summary>Ajuda de Acesso</summary>
+                <p>Se tiver problemas, contacte o suporte académico.</p>
+            </details>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-left"><img src="logo.png" alt="UMa logo"></div>
+        <nav class="footer-nav" aria-label="Rodapé">
+            <a href="privacidade.html">Privacidade</a>
+            <a href="ajuda.html">Ajuda</a>
+        </nav>
+    </footer>
+
+</body>
+</html>

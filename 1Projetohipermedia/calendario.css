@@ -1,0 +1,402 @@
+/* =========================================================
+   VARIÁVEIS DE TEMA (UNIFICADAS)
+========================================================= */
+:root {
+  --blue: #0f77a8;
+  --blue-dark: #0b6b95;
+  --primary: #0072a8;
+  --primary-dark: #155fa0;
+
+  --panel-bg: #ffffff;
+  --border: #d0d0d0;
+  --gray: #666;
+  --bg: #f4f6f8;
+  --light: #ffffff;
+  --text: #222;
+  --muted: #6b6b6b;
+
+  --nav-hover: rgba(255,255,255,0.25);
+
+  /* Calendário */
+  --weekday-bg: #fdf2e9;
+  --weekday-text: #856404;
+
+  --warning-bg: #fff3cd;
+  --warning-text: #856404;
+}
+
+/* ================= DARK MODE ================= */
+body:has(#theme-switch:checked) {
+  --bg: #121212;
+  --text: #f2f2f2;
+  --panel-bg: #1b1b1b;
+  --border: #444;
+  --gray: #9a9a9a;
+  --muted: #b5b5b5;
+  --nav-hover: rgba(255,255,255,0.18);
+
+  --weekday-bg: #2c2c2c;
+  --weekday-text: #ffcc00;
+}
+
+/* ================= BASE ================= */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================================
+   HEADER FIXO
+========================================================= */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 72px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  z-index: 2000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-img {
+  height: 48px;
+}
+
+.brand-logo {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.navbar {
+  display: flex;
+  gap: 22px;
+}
+
+.navbar a {
+  color: #fff;
+  font-size: 14px;
+  position: relative;
+  padding: 4px 0;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.navbar a:hover {
+  opacity: .85;
+  transform: translateY(-1px);
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width .25s ease;
+}
+
+.navbar a:hover::after,
+.navbar a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* =========================================================
+   TOGGLE DARK MODE
+========================================================= */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-label {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toggle-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  border-radius: 13px;
+  transition: background 0.3s ease;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+#theme-switch:checked + label .toggle-bg {
+  background: var(--blue);
+}
+
+#theme-switch:checked + label .toggle-knob {
+  transform: translateX(24px);
+}
+
+/* =========================================================
+   AVATAR
+========================================================= */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid rgba(255,255,255,.4);
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.sidebar {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  bottom: 0;
+  width: 230px;
+  background: var(--panel-bg);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  z-index: 500;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar > ul > li > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  font-size: 15px;
+  color: var(--text);
+  transition: background .25s ease, color .25s ease;
+}
+
+.sidebar > ul > li > a:hover {
+  background: rgba(15,119,168,.06);
+}
+
+.has-submenu > a::after {
+  content: "▸";
+  color: var(--gray);
+  transition: transform 0.2s;
+}
+
+.has-submenu.open > a::after {
+  transform: rotate(90deg);
+  color: var(--blue);
+}
+
+.submenu {
+  display: none;
+  background: var(--panel-bg);
+  border-left: 3px solid var(--blue);
+}
+
+.has-submenu.open > .submenu {
+  display: block;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 28px;
+  font-size: 14px;
+  color: var(--text);
+  transition: background .25s ease, color .25s ease;
+}
+
+.submenu li a:hover {
+  background: rgba(7,100,150,.06);
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+.content,
+.main-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 230px;
+  margin-top: 72px;
+  padding: 30px 50px;
+  min-height: calc(100vh - 72px - 60px);
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   CALENDÁRIO
+========================================================= */
+.calendar-wrapper {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.calendar-controls {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.month-select {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--panel-bg);
+  color: var(--text);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekday {
+  background: var(--weekday-bg);
+  color: var(--weekday-text);
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.day {
+  min-height: 110px;
+  padding: 10px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+  color: var(--muted);
+  transition: background 0.2s;
+}
+
+.day:hover:not(.empty) {
+  background: rgba(15, 119, 168, 0.08);
+  cursor: pointer;
+}
+
+.day.empty {
+  background: var(--bg);
+  opacity: 0.4;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer {
+  margin-left: 230px;
+  background: var(--panel-bg);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  font-size: 13px;
+  height: 60px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+
+.footer-logo {
+  height: 28px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-nav a {
+  color: var(--text);
+  font-size: 13px;
+  transition: opacity .2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: .7;
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+a:focus,
+select:focus,
+input[type="radio"]:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}

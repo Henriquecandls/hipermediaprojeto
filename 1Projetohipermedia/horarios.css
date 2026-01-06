@@ -1,0 +1,203 @@
+:root{
+  --blue:#0f77a8;
+  --blue-dark:#0b6b95;
+
+  --bg:#f5f7fa;
+  --panel:#ffffff;
+  --border:#e3e6ea;
+
+  --text:#1f2933;
+  --muted:#6b7280;
+
+  --radius:12px;
+}
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Segoe UI", system-ui, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* HEADER */
+.top-bar{
+  background:linear-gradient(90deg,var(--blue),var(--blue-dark));
+  color:#fff;
+  padding:18px 28px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.top-bar h1{
+  font-size:18px;
+  font-weight:600;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 60px; /* altura do top-bar */
+  left: 0;
+  width: 220px;
+  height: calc(100vh - 60px);
+  background: #ededed;
+  border-right: 1px solid #bbb;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background: #d6d6d6;
+}
+
+/* SUBMENUS */
+.submenu {
+  display: none;
+}
+
+.has-submenu.open > .submenu {
+  display: block;
+}
+
+/* CONTAINER */
+.container{
+  max-width:1300px;
+  margin: 32px 0 32px 240px; /* margem à esquerda para não sobrepor o sidebar */
+  padding:0 24px;
+}
+
+/* TITULO SEMANAL */
+.container h2{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:24px;
+  margin-top:80px; /* para não ficar por baixo do top-bar */
+}
+
+/* SCHEDULE GRID */
+.schedule{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:0px; /* Dias colados */
+}
+
+/* DAY COLUMN */
+.day{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px;
+  min-height:420px;
+  box-shadow:0 6px 18px rgba(0,0,0,.04);
+  display:flex;
+  flex-direction:column;
+  gap:12px; /* Espaço entre os eventos dentro do dia */
+}
+
+.day h3{
+  font-size:14px;
+  font-weight:600;
+  text-align:center;
+  margin-bottom:14px;
+  color:var(--muted);
+}
+
+/* EVENTS */
+.event{
+  border-radius:10px;
+  padding:14px;
+  font-size:14px;
+  line-height:1.4;
+  color:#fff;
+  font-weight:600;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+/* CORES DAS DISCIPLINAS */
+.purple{ background:#8f8fdc; }
+.orange{ background:#f2b25f; color:#000; }
+.blue  { background:#6fa8dc; }
+.green { background:#63c7c3; color:#000; }
+
+/* BUTTONS */
+.buttons{
+  display:flex;
+  gap:18px;
+  margin-top:32px;
+}
+
+.btn{
+  background:var(--blue);
+  color:#fff;
+  text-decoration:none;
+  padding:12px 22px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14px;
+  transition:.2s ease;
+  box-shadow:0 4px 10px rgba(15,119,168,.25);
+}
+
+.btn:hover{
+  background:var(--blue-dark);
+  transform:translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width:1000px){
+  .schedule{
+    grid-template-columns:1fr;
+  }
+
+  .day{
+    min-height:auto;
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  /* Quando o ecrã é pequeno, sidebar passa para cima */
+  .container{
+    margin-left:0;
+    margin-top:140px;
+  }
+
+  .sidebar{
+    position: relative;
+    width: 100%;
+    height: auto;
+    top:0;
+    border-right:none;
+  }
+
+  .top-bar{
+    position: relative;
+  }
+}

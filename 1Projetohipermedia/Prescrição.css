@@ -1,0 +1,61 @@
+/* -------------------------------
+   TÍTULO DA PÁGINA
+-------------------------------- */
+.content h2{
+  font-size:18px;
+  font-weight:600;
+  max-width:1000px;
+  margin:0 auto 20px auto;
+}
+
+/* -------------------------------
+   CAIXA PRINCIPAL
+-------------------------------- */
+.card-text{
+  max-width:1000px;
+  margin:0 auto;
+  background:var(--panel-bg);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:20px;
+}
+
+/* -------------------------------
+   TEXTO
+-------------------------------- */
+.card-text p{
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+/* -------------------------------
+   LINKS
+-------------------------------- */
+.card-text a{
+  color:var(--blue);
+  text-decoration:none;
+}
+
+.card-text a:hover{
+  text-decoration:underline;
+}
+
+/* -------------------------------
+   MENSAGEM INFORMATIVA
+-------------------------------- */
+.info-message{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  background:rgba(15,119,168,.08);
+  border-left:4px solid var(--blue);
+  padding:12px 14px;
+  border-radius:4px;
+  font-size:13px;
+}
+
+.info-icon{
+  font-size:18px;
+  line-height:1;
+}

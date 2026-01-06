@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InfoAlunos — Teste</title>
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="teste.css">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Saltar para o conteúdo</a>
+  <input type="checkbox" id="theme-switch" hidden>
+
+  <header>
+    <div class="header-left">
+      <img src="logo1.png" alt="Logótipo da Universidade da Madeira" class="logo1">
+
+      <div class="header-title">
+        <div class="brand-logo">UNIVERSIDADE da MADEIRA</div>
+        <div class="brand-title">InfoAlunos - Serviço de Informação dos Alunos</div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <label for="theme-switch" class="theme-toggle" aria-label="Alternar tema claro/escuro">
+        <span class="toggle-track">
+          <span class="toggle-thumb"></span>
+        </span>
+      </label>
+
+      <div class="avatar" aria-label="Avatar do utilizador">TU</div>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <ul>
+      <li><a href="Inicio (dashboard).html">Início</a></li>
+
+      <li class="has-submenu">
+        <a href="#">Geral</a>
+        <ul class="submenu">
+          <li><a href="processos.html">Processos</a></li>
+          <li><a href="dadospessoais.html">Dados Pessoais</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="ajuda.html">Ajuda</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Serviços</a>
+        <ul class="submenu">
+          <li><a href="pagamentos.html">Pagamentos</a></li>
+          <li><a href="matriculainscriçao.html">Matrícula/Inscrição</a></li>
+          <li><a href="inscriçaoturma.html">Inscrição em turmas</a></li>
+          <li><a href="requerimentos.html">Requerimentos</a></li>
+          <li><a href="cartao.html">Cartão Universitário</a></li>
+          <li><a href="bolsas.html">SASUMa - Bolsas</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Concursos</a>
+        <ul class="submenu">
+          <li><a href="candidaturas.html">Candidaturas</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Avaliação</a>
+        <ul class="submenu">
+          <li><a href="Pautas.html">Pautas</a></li>
+          <li><a href="Reclamaçoesnota.html">Reclamações de notas</a></li>
+          <li><a href="inqueritos.html">Inquéritos</a></li>
+          <li><a href="Resultadoinqueritos.html">Resultado dos inquéritos</a></li>
+          <li><a href="inqueritoraides.html">Inquérito RAIDES</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Creditações</a>
+        <ul class="submenu">
+          <li><a href="listadeprocessos.html">Lista de Processos</a></li>
+          <li><a href="novoprocesso.html">Novo Processo</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Documentos</a>
+        <ul class="submenu">
+          <li><a href="docacdemicos.html">Académicos</a></li>
+          <li><a href="docdeclaraçoes.html">Declarações</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Aula</a>
+        <ul class="submenu">
+          <li><a href="presença.html">Marcar presença</a></li>
+          <li><a href="calendario.html">Calendário</a></li>
+          <li><a href="sumario.html">Sumários</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Disciplina</a>
+        <ul class="submenu">
+          <li><a href="ficha.html">Ficha</a></li>
+          <li><a href="programa.html">Programa</a></li>
+          <li><a href="ficheiros.html">Ficheiros</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Curso</a>
+        <ul class="submenu">
+          <li><a href="Fichacurricular.html">Ficha curricular</a></li>
+          <li><a href="horarios.html">Horários</a></li>
+          <li><a href="historicomatriculas.html">Histórico de matrículas</a></li>
+          <li><a href="historicodisplinasaprov.html">Histórico de Disciplinas Aprovadas</a></li>
+          <li><a href="bolonha.html">Transição para a Bolonha</a></li>
+          <li><a href="planconclusao.html">Plano de Conclusão</a></li>
+          <li><a href="precriçao.html">Quadro de Prescrição</a></li>
+          <li><a href="Atividadesacadm.html">Atividades Académicas do Aluno</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#">Instituição</a>
+        <ul class="submenu">
+          <li><a href="#">Estrutura Orgânica</a></li>
+        </ul>
+      </li>
+
+      <li><a href="Eleiçoes.html">Eleições</a></li>
+    </ul>
+  </aside>
+
+
+  <main id="main" class="content">
+
+    <section class="card">
+      <h3>Pesquisa de Disciplinas</h3>
+
+      <div class="form-row">
+        <label>Ano Lectivo</label>
+        <select class="select-ano">
+          <option>2025/2026</option>
+          <option>2024/2025</option>
+          <option>2023/2024</option>
+          <option>2022/2023</option>
+          <option>2021/2022</option>
+        </select>
+        <button>Pesquisar...</button>
+      </div>
+
+      <div class="form-row">
+        <label>Disciplina</label>
+        <select class="select-ano">
+          <option>Introdução à Programação</option>
+          <option>Hipermedia</option>
+          <option>Redes</option>
+          <option>Matemática</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Lista de Turma e Aulas</h3>
+      <div class="form-row">
+        <label>Turmas</label>
+        <input type="text">
+        <label>Aulas</label>
+        <input type="text">
+        <button>Carregar...</button>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Lista de Programa - Aula</h3>
+        <p class="info">Não existem tópicos associados ao programa. Selecione uma aula.</p>
+      </div>
+
+      <div class="card">
+        <h3>Sumário - Tópicos</h3>
+        <p class="info">Não existem tópicos associados ao sumário. Selecione uma aula.</p>
+
+        <h4>Estado da Aula</h4>
+        <p class="info">Selecione uma aula.</p>
+
+        <h4>Sumário - Dados</h4>
+        <p class="info">Não existem dados associados ao sumário da aula!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <img src="logo1.png" alt="UMa logo">
+    </div>
+    <nav class="footer-nav" aria-label="Rodapé">
+      <a href="Inicio (dashboard).html">Início</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="ajuda.html">Ajuda</a>
+    </nav>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.has-submenu > a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const parent = link.parentElement;
+        parent.classList.toggle('open');
+        const submenu = parent.querySelector('.submenu');
+        if (submenu) submenu.style.display = parent.classList.contains('open') ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

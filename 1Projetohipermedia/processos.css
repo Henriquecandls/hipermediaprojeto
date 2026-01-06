@@ -1,0 +1,247 @@
+/* ============================================================
+   PALETA DE CORES — LIGHT + DARK
+   ============================================================ */
+:root {
+  --light-bg: #f4f6f8;
+  --light-text: #222;
+  --light-panel: #ffffff;
+  --light-border: #d0d0d0;
+  --light-gray: #666;
+
+  --dark-bg: #121212;
+  --dark-text: #eaeaea;
+  --dark-panel: #1f1f1f;
+  --dark-border: #333;
+  --dark-gray: #8a8a8a;
+
+  --blue: #0f77a8;
+  --blue-dark: #0b6b95;
+
+  --bg: light-dark(var(--light-bg), var(--dark-bg));
+  --text: light-dark(var(--light-text), var(--dark-text));
+  --panel-bg: light-dark(var(--light-panel), var(--dark-panel));
+  --border: light-dark(var(--light-border), var(--dark-border));
+  --gray: light-dark(var(--light-gray), var(--dark-gray));
+}
+
+/* ============================================================
+   DARK MODE VIA :has()
+   ============================================================ */
+body:has(#theme-switch:checked) {
+  --bg: var(--dark-bg);
+  --text: var(--dark-text);
+  --panel-bg: var(--dark-panel);
+  --border: var(--dark-border);
+  --gray: var(--dark-gray);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Segoe UI, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 230px 1fr;
+  grid-template-rows: 72px 1fr auto;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER (site-header)
+   ============================================================ */
+.site-header {
+  grid-area: header;
+  height: 72px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+  z-index: 1000;
+}
+
+.brand-logo {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ============================================================
+   SWITCH DE TEMA
+   ============================================================ */
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.toggle-track {
+  width: 48px;
+  height: 24px;
+  background: var(--border);
+  border-radius: 24px;
+  position: relative;
+  transition: background .25s ease;
+}
+
+.toggle-track::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: var(--panel-bg);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform .25s ease, background .25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+body:has(#theme-switch:checked) .toggle-track {
+  background: var(--blue);
+}
+
+body:has(#theme-switch:checked) .toggle-track::after {
+  transform: translateX(24px);
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid rgba(255,255,255,.4);
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+.content {
+  grid-area: content;
+  padding: 28px;
+  overflow: auto;
+}
+
+.card {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* BLOCO "SEM PROCESSOS" */
+.proc-empty {
+  margin-top: 16px;
+  padding: 18px 20px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer {
+  margin-left: 240px;
+  border-top: 1px solid var(--card-border);
+  padding: 12px 20px;
+  font-size: 13px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text);
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  height: 28px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 0.7;
+}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (width < 800px) {
+  body {
+    grid-template-areas:
+      "header"
+      "content"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .content {
+    padding: 16px;
+  }
+}

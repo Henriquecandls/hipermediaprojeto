@@ -1,0 +1,490 @@
+/* =====================================================
+   VARIÁVEIS (LIGHT / DARK)
+   ===================================================== */
+:root{
+  --blue:#0f77a8;
+  --blue-dark:#0b6b95;
+  --panel-bg:#ffffff;
+  --border:#d0d0d0;
+  --bg:#f4f6f8;
+  --text-color:#222;
+  --sidebar-bg:#e6e6e6;
+}
+
+/* =====================================================
+   RESET
+   ===================================================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, Arial, sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text-color);
+  min-height:100vh;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:72px;
+  background:linear-gradient(90deg,var(--blue),var(--blue-dark));
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 24px;
+  z-index:1000;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.uma-logo{
+  height:38px;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+.uma-title{
+  font-size:14px;
+  font-weight:700;
+}
+
+.uma-subtitle{
+  font-size:13px;
+  opacity:.9;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.header-right a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.header-right a:hover{opacity:.85}
+
+/* Avatar */
+.user-avatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--blue);
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* =====================================================
+   DARK MODE TOGGLE
+   ===================================================== */
+.theme-switch{
+  position:relative;
+  width:46px;
+  height:24px;
+}
+
+.theme-switch input{
+  opacity:0;
+}
+
+.slider{
+  position:absolute;
+  inset:0;
+  background:#cfd8dc;
+  border-radius:20px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.slider::before{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:18px;
+  left:3px;
+  top:3px;
+  background:#fff;
+  border-radius:50%;
+  transition:.25s;
+}
+
+.theme-switch input:checked + .slider{
+  background:var(--blue-dark);
+}
+
+.theme-switch input:checked + .slider::before{
+  transform:translateX(22px);
+}
+
+/* =====================================================
+   LAYOUT COM CSS GRID
+   ===================================================== */
+.container{
+  display:grid;
+  grid-template-columns:230px 1fr;
+  grid-template-rows:auto;
+  min-height:calc(100vh - 72px);
+  margin-top:72px;
+}
+
+/* SIDEBAR */
+.sidebar{
+  position:sticky;
+  top:72px;
+  height:calc(100vh - 72px);
+  background:var(--sidebar-bg);
+  border-right:1px solid var(--border);
+  overflow-y:auto;
+  grid-column:1;
+}
+
+.sidebar ul{list-style:none}
+.sidebar li{border-bottom:1px solid var(--border)}
+
+.sidebar a{
+  display:block;
+  padding:12px 18px;
+  text-decoration:none;
+  font-size:14px;
+  color:var(--text-color);
+}
+
+.sidebar a:hover{
+  background:rgba(15,119,168,.08);
+}
+
+/* Submenu */
+.submenu{
+  display:none;
+  background:var(--panel-bg);
+}
+
+.has-submenu.open > .submenu{display:block}
+
+.submenu a{
+  padding-left:32px;
+  font-size:13px;
+}
+
+/* CONTENT com CSS Grid */
+.content{
+  grid-column:2;
+  padding:28px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+  width:auto;
+  margin-left:0;
+  margin-top:0;
+}
+
+/* Container principal do conteúdo */
+.content > main{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+
+/* =====================================================
+   SECTIONS COM CSS GRID
+   ===================================================== */
+.section{
+  background:var(--panel-bg);
+  border:1px solid var(--border);
+  padding:20px;
+  margin-bottom:0;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  border-radius:6px;
+}
+
+.section h3{
+  color:var(--blue);
+  margin-bottom:10px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:8px;
+  font-size:16px;
+  grid-column:1 / -1;
+}
+
+.warning{
+  background:#eef3ff;
+  border:1px solid #b7c8eb;
+  font-size:13px;
+  grid-column:1 / -1;
+  padding:15px;
+  border-radius:6px;
+}
+
+/* =====================================================
+   FORMULÁRIOS COM CSS GRID E SUBGRID
+   ===================================================== */
+   /* Container principal do formulário dentro da section */
+.section > div:first-of-type:not(.warning) {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+/* Linhas do formulário - usando subgrid para alinhamento  */
+.form-row{
+  display:grid;
+  grid-template-columns:subgrid; 
+  grid-column:span 1;
+  gap:12px;
+  align-items:center;
+  margin-bottom:12px;
+}
+/* ao carregar na caixa aparece calendario */
+input[type="date"] {
+  min-height:36px;
+  padding:6px 10px;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  position:relative;
+  cursor:pointer;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background:transparent;
+  bottom:0;
+  color:transparent;
+  cursor:pointer;
+  height:auto;
+  left:0;
+  position:absolute;
+  right:0;
+  top:0;
+  width:auto;
+  opacity:1;
+}
+input[type="date"] {
+  padding-right:30px;
+  background-color:var(--panel-bg);
+  border:1px solid var(--border);
+}
+/* =====================================================
+   LAYOUT RESPONSIVO COM MEDIA QUERIES (RANGE SYNTAX)
+   ===================================================== */
+
+@media (width >= 1200px) {
+  .section > div:first-of-type:not(.warning) {
+    grid-template-columns:repeat(4, 1fr);
+  }
+  .form-row {
+    grid-column:span 4;
+    grid-template-columns:150px 1fr 150px 1fr;
+    gap:10px;
+  }
+  .form-row textarea {
+    grid-column:2 / span 3;
+  }
+}
+@media (width >= 1024px) and (width < 1200px) {
+  .section > div:first-of-type:not(.warning) {
+    grid-template-columns:repeat(4, 1fr);
+  }
+  .form-row {
+    grid-column:span 4;
+    grid-template-columns:140px 1fr 140px 1fr;
+    gap:8px;
+  }
+  .form-row textarea {
+    grid-column:2 / span 3;
+  }
+}
+@media (width >= 768px) and (width < 1024px) {
+  .container {
+    grid-template-columns:200px 1fr;
+  }
+  
+  .sidebar {
+    width:200px;
+  }
+  
+  .section > div:first-of-type:not(.warning) {
+    grid-template-columns:repeat(2, 1fr);
+  }
+  
+  .form-row {
+    grid-column:span 2;
+    grid-template-columns:140px 1fr;
+  }
+  
+  /* Linha com dois campos (Data Início e Data Fim) */
+  .form-row:nth-child(2) {
+    grid-template-columns:140px 1fr 140px 1fr;
+  }
+  
+  .form-row textarea {
+    grid-column:2 / span 1;
+  }
+  
+  /* Garante que os campos date sejam clicáveis */
+  input[type="date"] {
+    min-height:38px;
+  }
+}
+
+/* MOBILE (1 coluna) */
+@media (width < 768px) {
+  .container {
+    grid-template-columns:1fr;
+  }
+  
+  .sidebar {
+    position:fixed;
+    width:230px;
+    transform:translateX(-100%);
+    transition:transform 0.3s ease;
+    z-index:999;
+  }
+  
+  .sidebar.active {
+    transform:translateX(0);
+  }
+  
+  .content {
+    grid-column:1;
+    padding:20px 16px;
+    margin-left:0;
+    width:100%;
+  }
+  
+  .section > div:first-of-type:not(.warning) {
+    grid-template-columns:1fr;
+  }
+  
+  .form-row {
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  
+  /* Ajuste específico para campos date em mobile */
+  input[type="date"] {
+    width:100%;
+    min-width:0;
+    min-height:40px;
+  }
+  
+  .form-row textarea {
+    grid-column:1 / span 1;
+  }
+}
+
+/* ESTILOS BASE PARA FORMULÁRIOS (mantidos do original) */
+label{
+  font-weight:bold;
+  font-size:13px;
+}
+
+input,
+select,
+textarea{
+  padding:6px 10px;
+  font-size:13px;
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:4px;
+  background-color:var(--panel-bg);
+  color:var(--text-color);
+}
+
+/* Melhor contraste para selects */
+select {
+  cursor:pointer;
+  padding-right:30px;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+  background-size:12px;
+}
+
+/* Foco consistente para todos os inputs */
+input:focus,
+select:focus,
+textarea:focus{
+  outline:2px solid var(--blue);
+  outline-offset:1px;
+  border-color:var(--blue);
+}
+
+/* =====================================================
+   DARK MODE GLOBAL
+   ===================================================== */
+body:has(#theme-switch:checked){
+  --bg:#121212;
+  --panel-bg:#1f1f1f;
+  --text-color:#eaeaea;
+  --border:#333;
+  --sidebar-bg:#1a1a1a;
+}
+
+/* Ajuste do select no dark mode */
+body:has(#theme-switch:checked) select {
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23eaeaea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+}
+
+/* =====================================================
+   ACESSIBILIDADE (WCAG 2.1)
+   ===================================================== */
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:3px solid var(--blue);
+  outline-offset:2px;
+}
+
+/* =====================================================
+   MELHORIAS VISUAIS ADICIONAIS
+   ===================================================== */
+
+/* Hover states para inputs */
+input:hover,
+select:hover,
+textarea:hover {
+  border-color:#999;
+}
+
+/* Estados para campos obrigatórios */
+input:required,
+select:required,
+textarea:required {
+  border-left:3px solid var(--blue);
+}
+
+/* Espaçamento melhorado entre seções */
+.section + .section {
+  margin-top:0;
+}
+
+/* Melhor visualização para o campo de data quando ativo */
+input[type="date"]:focus {
+  border-color:var(--blue);
+  box-shadow:0 0 0 1px rgba(15,119,168,0.2);
+}

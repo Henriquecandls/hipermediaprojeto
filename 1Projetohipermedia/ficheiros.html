@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoAlunos - Universidade da Madeira</title>
+    <link rel="stylesheet" href="ficheiros.css">
+    
+</head>
+<body>
+
+     <header>
+    <div class="brand">
+        <img src="logo1.png" alt="Logotipo UMa" class="logo-img" />
+        <div>
+        <div class="brand-logo">UNIVERSIDADE da MADEIRA</div>
+        <div class="brand-title">InfoAlunos - Serviço de Informação dos Alunos</div>
+        </div>
+    </div>
+
+    <nav class="navbar" aria-label="Navegação principal">
+        <a href="Inicio (dashboard).html" aria-current="page">Início</a>
+        <a href="inqueritos.html">Inquéritos</a>
+        <a href="docacdemicos.html">Documentos</a>
+        <a href="cartao.html">Perfil</a>
+    </nav>
+
+    <div class="header-right">
+        <div class="theme-toggle" aria-label="Alternar tema">
+        <input type="checkbox" id="theme-switch" hidden />
+        <label for="theme-switch" class="toggle-label">
+            <span class="toggle-bg"></span>
+            <span class="toggle-knob"></span>
+        </label>
+        </div>
+
+        <div class="avatar" aria-label="Avatar do utilizador">TU</div>
+    </div>
+    </header>
+
+    <main>
+                       <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="Inicio (dashboard).html">Início</a></li>
+
+            <li class="has-submenu">
+                <a href="#">Geral</a>
+                <ul class="submenu">
+                    <li><a href="processos.html">Processos</a></li>
+                    <li><a href="dadospessoais.html">Dados Pessoais</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Serviços</a>
+                <ul class="submenu">
+                    <li><a href="pagamentos.html">Pagamentos</a></li>
+                    <li><a href="matriculainscriçao.html">Matrícula/Inscrição</a></li>
+                    <li><a href="inscriçaoturma.html">Inscrição em turmas</a></li>
+                    <li><a href="requerimentos.html">Requerimentos</a></li>
+                    <li><a href="cartao.html">Cartão Universitário</a></li>
+                    <li><a href="https://www.uma.pt/sobre/servico-apoio-estudantes/accao-social/?IDM=PT&ID0=1767623813&ID1=&ID2=500&ID3=77f0190e4a58afeeac3ae2b2c09f0cb0">SASUMa - Bolsas</a></li> <!-- link externo do infoalunos  -->
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Concursos</a>
+                <ul class="submenu">
+                    <li><a href="candidaturas.html">Candidaturas</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Avaliação</a>
+                <ul class="submenu">
+                    <li><a href="Pautas.html">Pautas</a></li>
+                    <li><a href="Reclamaçoesnota.html">Reclamações de notas</a></li>
+                    <li><a href="inqueritos.html">Inquéritos</a></li>
+                    <li><a href="Resultadoinqueritos.html">Resultado dos inquéritos</a></li>
+                    <li><a href="inqueritoraides.html">Inquérito RAIDES</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Creditações</a>
+                <ul class="submenu">
+                    <li><a href="listadeprocessos.html">Lista de Processos</a></li>
+                    <li><a href="novoprocesso.html">Novo Processo</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Documentos</a>
+                <ul class="submenu">
+                    <li><a href="docacdemicos.html">Académicos</a></li>
+                    <li><a href="docdeclaraçoes.html">Declarações</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Aula</a>
+                <ul class="submenu">
+                    <li><a href="presença.html">Marcar presença</a></li>
+                    <li><a href="calendario.html">Calendário</a></li>
+                    <li><a href="sumario.html">Sumários</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Disciplina</a>
+                <ul class="submenu">
+                    <li><a href="ficha.html">Ficha</a></li>
+                    <li><a href="ficha.html">Programa</a></li>   <!-- o CONTEÚDO e o mesmo que esta na ficha mas na parte do menu programa provalmente e preciso javascript  -->
+                    <li><a href="ficheiros.html">Ficheiros</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Curso</a>
+                <ul class="submenu">
+                    <li><a href="Fichacurricular.html">Ficha curricular</a></li>
+                    <li><a href="horarios.html">Horários</a></li>
+                    <li><a href="historicomatriculas.html">Histórico de matrículas</a></li>
+                    <li><a href="historicodisplinasaprov.html">Histórico de Disciplinas Aprovadas</a></li>
+                    <li><a href="bolonha.html">Transição para a Bolonha</a></li>
+                    <li><a href="planconclusao.html">Plano de Conclusão</a></li>
+                    <li><a href="Prescrição.html">Quadro de Prescrição</a></li>
+                    <li><a href="Atividadesacadm.html">Atividades Académicas do Aluno</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Instituição</a>
+                <ul class="submenu">
+                    <li><a href="#">Estrutura Orgânica</a></li>
+                </ul>
+            </li>
+
+            <li><a href="Eleiçoes.html">Eleições</a></li>
+        </ul>
+    </aside>
+
+        <div class="main-content">
+            
+            <div class="search-container">
+                <div class="search-header">Pesquisa de Disciplinas</div>
+                <form class="search-form">
+                    <div class="search-row">
+                        <label>Ano Lectivo</label>
+                        <select>
+                            <option>2023/2024</option>
+                            <option selected>2024/2025</option>
+                        </select>
+                        <button type="button" class="btn-uma">Pesquisar...</button>
+                    </div>
+                    <div class="search-row">
+                        <label>Disciplina</label>
+                        <input type="text" placeholder="Insira o nome da disciplina">
+                    </div>
+                </form>
+            </div>
+
+            <div class="tabs-wrapper">
+                <div class="tabs-nav">
+                    <div class="tab" data-tab="1">Ficheiros de Docentes na Disciplina</div>
+                    <div class="tab active" data-tab="2">Ficheiros do Aluno na Disciplina</div>
+                </div>
+
+                <div id="tab1" class="content-panel">
+                    <div class="filter-row">
+                        <label>Filtrar por Categoria</label>
+                        <input type="text" class="input-filter">
+                        <button type="button" class="btn-uma">Filtrar Lista</button>
+                    </div>
+                    <div class="info-box">
+                        <span class="info-icon">i</span>
+                        Não foram encontrados ficheiros para a selecção efectuada, escolha a disciplina!
+                    </div>
+                </div>
+
+                <div id="tab2" class="content-panel active">
+    <div class="upload-container">
+        <div class="upload-form-section">
+            <h3 class="block-title">Criar/Actualizar Ficheiro</h3>
+            
+            <div class="field-row">
+                <label>Escolher ficheiro:</label>
+                <input type="file" class="input-blue">
+            </div>
+
+            <div class="field-row">
+                <label><span class="required">*</span>Categoria</label>
+                <input type="text" class="input-blue">
+            </div>
+
+            <div class="field-row">
+                <label><span class="required">*</span>Descrição</label>
+                <input type="text" class="input-blue">
+            </div>
+
+            <div class="field-row">
+                <label>Observações</label>
+                <textarea rows="4" class="input-blue"></textarea>
+            </div>
+
+            <div class="form-notes">
+                <p><span class="required">*</span> Os campos assinalados são de preenchimento obrigatório;</p>
+                <p>O ficheiro a enviar está limitado a <span class="required">10 Mb</span>.</p>
+            </div>
+
+            <div class="separator-label">Informações Gerais do Ficheiro</div>
+            
+            <div class="action-buttons">
+                <button type="button" class="btn-uma btn-delete">Eliminar</button>
+                <div class="right-group">
+                    <button type="button" class="btn-uma">Novo Ficheiro</button>
+                    <button type="button" class="btn-uma">Guardar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="upload-list-section">
+            <h3 class="block-title">Lista de ficheiros associados</h3>
+            <div class="info-box">
+                <span class="info-icon">i</span>
+                Não foram encontrados ficheiros para a selecção efectuada, escolha a disciplina!
+            </div>
+        </div>
+    </div>
+</div>
+                        
+    </main>
+   <footer class="footer">
+  <div class="footer-left">
+    <img src="logo1.png" alt="Logotipo UMa" class="footer-logo">
+    <span>Universidade da Madeira — InfoAlunos</span>
+  </div>
+  <nav class="footer-nav">
+    <a href="404.html">Erro?</a>
+    <a href="#">Contactos</a>
+    <a href="#">Termos</a>
+  </nav>
+</footer>
+
+    <script>
+        // Troca de Abas
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.onclick = () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('tab' + tab.dataset.tab).classList.add('active');
+            };
+        });
+        // Adicione isto dentro da sua tag <script>
+document.querySelectorAll('.has-submenu > a').forEach(menuItem => {
+    menuItem.onclick = (e) => {
+        e.preventDefault(); // Impede o link de navegar
+        const parent = menuItem.parentElement;
+        
+        // Fecha outros menus abertos (opcional)
+        document.querySelectorAll('.has-submenu').forEach(item => {
+            if (item !== parent) item.classList.remove('open');
+        });
+
+        // Alterna o menu atual
+        parent.classList.toggle('open');
+    };
+});
+    </script>
+    
+  
+    
+</body>
+</html>

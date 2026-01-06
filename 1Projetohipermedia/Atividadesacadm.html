@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>InfoAlunos - Actividades Académicas</title>
+    <link rel="stylesheet" href="Atividadesacadm.css">
+    
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" role="banner">
+  <div class="header-left">
+    <img src="logo1.png" alt="Universidade da Madeira" class="uma-logo">
+
+    <div class="brand-text">
+      <span class="uma-title">UNIVERSIDADE da MADEIRA</span>
+      <span class="uma-subtitle">InfoAlunos - Serviço de Informação dos Alunos</span>
+    </div>
+  </div>
+
+  <nav class="header-right" aria-label="Navegação principal">
+    <a href="Inicio (dashboard).html">Início</a>
+    <a href="ajuda.html">Ajuda</a>
+    <a href="privacidade.html">Privacidade</a>
+
+    <label class="theme-switch">
+      <input type="checkbox" id="theme-switch">
+      <span class="slider"></span>
+    </label>
+
+    <div class="user-avatar">TU</div>
+
+  </nav>
+</header>
+
+<div class="container">
+
+       <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="Inicio (dashboard).html">Início</a></li>
+
+            <li class="has-submenu">
+                <a href="#">Geral</a>
+                <ul class="submenu">
+                    <li><a href="processos.html">Processos</a></li>
+                    <li><a href="dadospessoais.html">Dados Pessoais</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Serviços</a>
+                <ul class="submenu">
+                    <li><a href="pagamentos.html">Pagamentos</a></li>
+                    <li><a href="matriculainscriçao.html">Matrícula/Inscrição</a></li>
+                    <li><a href="inscriçaoturma.html">Inscrição em turmas</a></li>
+                    <li><a href="requerimentos.html">Requerimentos</a></li>
+                    <li><a href="cartao.html">Cartão Universitário</a></li>
+                    <li><a href="https://www.uma.pt/sobre/servico-apoio-estudantes/accao-social/?IDM=PT&ID0=1767623813&ID1=&ID2=500&ID3=77f0190e4a58afeeac3ae2b2c09f0cb0">SASUMa - Bolsas</a></li> <!-- link externo do infoalunos  -->
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Concursos</a>
+                <ul class="submenu">
+                    <li><a href="candidaturas.html">Candidaturas</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Avaliação</a>
+                <ul class="submenu">
+                    <li><a href="Pautas.html">Pautas</a></li>
+                    <li><a href="Reclamaçoesnota.html">Reclamações de notas</a></li>
+                    <li><a href="inqueritos.html">Inquéritos</a></li>
+                    <li><a href="Resultadoinqueritos.html">Resultado dos inquéritos</a></li>
+                    <li><a href="inqueritoraides.html">Inquérito RAIDES</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Creditações</a>
+                <ul class="submenu">
+                    <li><a href="listadeprocessos.html">Lista de Processos</a></li>
+                    <li><a href="novoprocesso.html">Novo Processo</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Documentos</a>
+                <ul class="submenu">
+                    <li><a href="docacdemicos.html">Académicos</a></li>
+                    <li><a href="docdeclaraçoes.html">Declarações</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Aula</a>
+                <ul class="submenu">
+                    <li><a href="presença.html">Marcar presença</a></li>
+                    <li><a href="calendario.html">Calendário</a></li>
+                    <li><a href="sumario.html">Sumários</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Disciplina</a>
+                <ul class="submenu">
+                    <li><a href="ficha.html">Ficha</a></li>
+                    <li><a href="ficha.html">Programa</a></li>   <!-- o CONTEÚDO e o mesmo que esta na ficha mas na parte do menu programa provalmente e preciso javascript  -->
+                    <li><a href="ficheiros.html">Ficheiros</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Curso</a>
+                <ul class="submenu">
+                    <li><a href="Fichacurricular.html">Ficha curricular</a></li>
+                    <li><a href="horarios.html">Horários</a></li>
+                    <li><a href="historicomatriculas.html">Histórico de matrículas</a></li>
+                    <li><a href="historicodisplinasaprov.html">Histórico de Disciplinas Aprovadas</a></li>
+                    <li><a href="bolonha.html">Transição para a Bolonha</a></li>
+                    <li><a href="planconclusao.html">Plano de Conclusão</a></li>
+                    <li><a href="Prescrição.html">Quadro de Prescrição</a></li>
+                    <li><a href="Atividadesacadm.html">Atividades Académicas do Aluno</a></li>
+                </ul>
+            </li>
+
+            <li class="has-submenu">
+                <a href="#">Instituição</a>
+                <ul class="submenu">
+                    <li><a href="#">Estrutura Orgânica</a></li>
+                </ul>
+            </li>
+
+            <li><a href="Eleiçoes.html">Eleições</a></li>
+        </ul>
+    </aside>
+    <!-- CONTENT -->
+    <div class="content">
+        <main>
+
+            <div class="section warning">
+                Nesta área o aluno deve introduzir, caso existam, as actividades académicas
+                (máximo de 10) para inclusão no Suplemento ao Diploma.
+                As actividades devem ser descritas em Português e Inglês.
+            </div>
+
+           <!-- ACTIVIDADE 1 -->
+<div class="section">
+    <h3>Actividade 1</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+<!-- ACTIVIDADE 2 -->
+<div class="section">
+    <h3>Actividade 2</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+<!-- ACTIVIDADE 3 -->
+<div class="section">
+    <h3>Actividade 3</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+<!-- ACTIVIDADE 4 -->
+<div class="section">
+    <h3>Actividade 4</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+<!-- ACTIVIDADE 5 -->
+<div class="section">
+    <h3>Actividade 5</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+<!-- ACTIVIDADE 6 -->
+<div class="section">
+    <h3>Actividade 6</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+<!-- ACTIVIDADE 7 -->
+<div class="section">
+    <h3>Actividade 7</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+<!-- ACTIVIDADE 8 -->
+<div class="section">
+    <h3>Actividade 8</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+<!-- ACTIVIDADE 9 -->
+<div class="section">
+    <h3>Actividade 9</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+<!-- ACTIVIDADE 10 -->
+<div class="section">
+    <h3>Actividade 10</h3>
+    <div class="form-row">
+        <label>Tipo de Actividade:</label>
+        <select>
+            <option value="">-- Selecionar --</option>
+            <option>Cargo Académico</option>
+            <option>Actividades Desportivas (UMa)</option>
+            <option>Actividades Recreativas (no âmbito da UMa)</option>
+            <option>Actividades de Voluntariado (Associado à UMa)</option>
+            <option>Organização e Participação em Eventos (Organizados pela UMa)</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Data Início:</label>
+        <input type="date">
+        <label>Data Fim:</label>
+        <input type="date">
+    </div>
+
+    <div class="form-row">
+        <label>Local (PT):</label>
+        <input type="text" class="full">
+        <label>Local (EN):</label>
+        <input type="text" class="full">
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (PT):</label>
+        <textarea rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Descrição (EN):</label>
+        <textarea rows="3"></textarea>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+</div>
+  <script>
+    document.querySelectorAll('.has-submenu > a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const parent = link.parentElement;
+        parent.classList.toggle('open');
+        const submenu = parent.querySelector('.submenu');
+        if(submenu) submenu.style.display = parent.classList.contains('open') ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

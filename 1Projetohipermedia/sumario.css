@@ -1,0 +1,386 @@
+/* ============================================
+   RESET + BASE
+============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ============================================
+   VARIÁVEIS LIGHT MODE
+============================================ */
+:root {
+    --bg: #f4f4f4;
+    --text: #222;
+
+    --sidebar-bg: #ffffff;
+    --sidebar-border: #c8c8c8;
+
+    --card-bg: #ffffff;
+    --card-border: #ccc;
+
+    --blue: #0b6aa2;
+    --blue-hover: #0a5c82;
+
+    --input-bg: #ffffff;
+    --input-border: #bbb;
+}
+
+/* ============================================
+   DARK MODE
+============================================ */
+body:has(#theme-switch:checked) {
+    --bg: #121212;
+    --text: #f2f2f2;
+
+    --sidebar-bg: #1b1b1b;
+    --sidebar-border: #444;
+
+    --card-bg: #1e1e1e;
+    --card-border: #555;
+
+    --input-bg: #1b1b1b;
+    --input-border: #555;
+}
+
+/* ============================================
+   HEADER (CORRIGIDO)
+============================================ */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--blue);
+  color: white;
+  padding: 0 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo + Título */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-img {
+  height: 40px;
+}
+
+.brand-logo {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.brand-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 4px 0;
+  position: relative;
+}
+
+.navbar a:hover {
+  opacity: 0.85;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* Header Right */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-label {
+  position: relative;
+  width: 44px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.toggle-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  border-radius: 11px;
+  transition: background 0.3s ease;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+#theme-switch:checked + label .toggle-bg {
+  background: var(--blue);
+}
+
+#theme-switch:checked + label .toggle-knob {
+  transform: translateX(22px);
+}
+
+/* Avatar */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+/* ============================================
+   SIDEBAR
+============================================ */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 220px;
+    height: calc(100vh - 60px);
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    border-bottom: 1px solid var(--sidebar-border);
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sidebar a:hover {
+    background: #d6d6d6;
+}
+
+/* SUBMENU */
+.submenu {
+    display: none;
+    background: #f0f0f0;
+}
+
+body:has(#theme-switch:checked) .submenu {
+    background: #2a2a2a;
+}
+
+.submenu a {
+    padding-left: 32px;
+    font-size: 13px;
+}
+
+.has-submenu.open > .submenu {
+    display: block;
+}
+
+/* ============================================
+   MAIN CONTENT
+============================================ */
+.content {
+    margin-left: 220px;
+    padding: 80px 20px 20px;
+    min-height: calc(100vh - 60px);
+}
+
+/* ============================================
+   CARDS
+============================================ */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: var(--blue);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 5px;
+}
+
+.card h4 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* ============================================
+   FORM ROWS
+============================================ */
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    min-width: 120px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+input,
+select,
+textarea {
+    padding: 5px;
+    font-size: 13px;
+    background: var(--input-bg);
+    color: var(--text);
+    border: 1px solid var(--input-border);
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+button {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--blue-hover);
+}
+
+/* ============================================
+   GRID (painéis inferiores)
+============================================ */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.info {
+    font-size: 13px;
+    color: var(--text);
+}
+
+/* ============================================
+   FOOTER 
+============================================ */
+.footer {
+  margin-left: 220px;
+  background: #f0f0f0;
+  border-top: 1px solid #ccc;
+  padding: 12px 20px;
+  font-size: 13px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+body:has(#theme-switch:checked) .footer {
+  background: #1b1b1b;
+  border-top: 1px solid #444;
+  color: #f2f2f2;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  height: 28px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   ACESSIBILIDADE
+============================================ */
+a:focus,
+select:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+}

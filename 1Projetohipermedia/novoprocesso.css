@@ -1,0 +1,608 @@
+/* =========================================================
+   ACESSIBILIDADE WCAG 2.1
+========================================================= */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   VARIÁVEIS DE TEMA
+========================================================= */
+:root {
+  --blue: #0f77a8;
+  --blue-dark: #0b6b95;
+
+  --bg: #f4f6f8;
+  --text: #222;
+  --panel-bg: #ffffff;
+  --border: #d0d0d0;
+  --gray: #666;
+  --muted: #6b6b6b;
+  --nav-hover: rgba(255,255,255,0.25);
+
+  --sidebar-width: 230px;
+  --header-height: 72px;
+
+  --sidebar-bg: var(--panel-bg);
+  --text-color: var(--text);
+}
+
+body:has(#theme-switch:checked) {
+  --bg: #121212;
+  --text: #f2f2f2;
+  --panel-bg: #1b1b1b;
+  --border: #444;
+  --gray: #9a9a9a;
+  --muted: #b5b5b5;
+  --nav-hover: rgba(255,255,255,0.18);
+  --sidebar-bg: #161616;
+}
+
+/* =========================================================
+   BASE / LAYOUT PRINCIPAL
+========================================================= */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  padding-top: var(--header-height);
+}
+
+/* =========================================================
+   HEADER FIXO
+========================================================= */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-height);
+  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-img {
+  height: 48px;
+  display: block;
+}
+
+.brand-logo {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* header right area */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 1100;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.navbar {
+  display: flex;
+  gap: 22px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+  padding: 6px 0;
+  transition: opacity .25s ease, color .25s ease, transform .25s ease;
+}
+
+.navbar a:hover {
+  opacity: .9;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width .25s ease;
+}
+
+.navbar a:hover::after,
+.navbar a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* =========================================================
+   TOGGLE DARK MODE (accessible switch)
+========================================================= */
+/* visually hide the checkbox but keep it accessible */
+#theme-switch {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* wrapper for toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+/* label acts as the visible switch */
+.toggle-label {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 16px;
+  transition: box-shadow .18s ease;
+}
+
+/* background of switch */
+.toggle-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #d0d0d0, #bdbdbd);
+  border-radius: 16px;
+  transition: background .28s ease, opacity .18s ease;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* knob */
+.toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  transition: transform .28s cubic-bezier(.2,.9,.3,1), background .18s ease;
+  will-change: transform;
+}
+
+/* icons inside toggle (optional) */
+.toggle-label .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: rgba(255,255,255,0.9);
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.toggle-label .icon.sun {
+  left: 8px;
+  opacity: 1;
+}
+
+.toggle-label .icon.moon {
+  right: 8px;
+  opacity: 0;
+}
+
+/* checked state */
+#theme-switch:checked + .toggle-label .toggle-bg {
+  background: linear-gradient(180deg, var(--blue), var(--blue-dark));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+#theme-switch:checked + .toggle-label .toggle-knob {
+  transform: translateX(24px);
+  background: #fff;
+}
+
+#theme-switch:checked + .toggle-label .icon.sun {
+  opacity: 0;
+  transform: translateY(-50%) scale(.9);
+}
+
+#theme-switch:checked + .toggle-label .icon.moon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+#theme-switch:focus + .toggle-label {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 20%, transparent);
+  outline: none;
+}
+
+/* ensure knob contrast in dark mode */
+body:has(#theme-switch:checked) .toggle-knob {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+}
+
+/* =========================================================
+   AVATAR
+========================================================= */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--panel-bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid var(--border);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+/* =========================================================
+   SIDEBAR — FIXO E SEM BURACOS
+========================================================= */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  position: fixed;
+  top: var(--header-height);
+  bottom: 0;
+  height: calc(100vh - var(--header-height));
+  z-index: 900;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar > ul > li > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  font-size: 15px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background .25s ease, color .25s ease;
+}
+
+.sidebar > ul > li > a:hover {
+  background: rgba(15,119,168,.10);
+}
+
+/* Submenu: use max-height for slide transition */
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--panel-bg);
+  border-left: 3px solid var(--blue);
+  transition: max-height .28s ease;
+}
+
+.has-submenu.open > .submenu {
+  max-height: 600px; /* adjust if you have many items */
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 28px;
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background .25s ease;
+}
+
+.submenu li a:hover {
+  background: rgba(7,100,150,.10);
+}
+
+/* =========================================================
+   ÁREA PRINCIPAL (container + footer)
+   - container é o "main" que cresce (flex:1)
+========================================================= */
+.container {
+  margin-left: var(--sidebar-width);
+  padding: 16px 24px 24px;
+  max-width: 1100px;
+  color: var(--text);
+  flex: 1 1 auto;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   TABS
+========================================================= */
+.tabs {
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid var(--border);
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+  transition: 0.3s;
+  color: var(--text);
+}
+
+.tab:hover {
+  background: color-mix(in srgb, var(--panel-bg) 80%, var(--text) 20%);
+}
+
+.tab.active {
+  background: var(--panel-bg);
+  border-top: 3px solid var(--blue);
+}
+
+/* =========================================================
+   BARRA AMARELA
+========================================================= */
+.yellow-bar {
+  background: #fff3b0;
+  border: 1px solid #f1c232;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.yellow-bar a {
+  margin-right: 20px;
+  color: #004c7f;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* =========================================================
+   TAB CONTENT
+========================================================= */
+.tab-content {
+  display: none;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  padding: 15px;
+  border-radius: 0 0 6px 6px;
+  color: var(--text);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* =========================================================
+   BOX
+========================================================= */
+.box {
+  border: 1px solid var(--border);
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background: var(--panel-bg);
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--panel-bg);
+  color: var(--text);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--blue);
+}
+
+td input {
+  background: transparent;
+  color: var(--text);
+  border: none;
+}
+
+td input:focus {
+  outline: 2px solid var(--blue);
+  background: var(--panel-bg);
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 6px;
+  text-align: center;
+  font-size: 13px;
+}
+
+th {
+  background: color-mix(in srgb, var(--panel-bg) 90%, var(--text) 10%);
+  color: var(--text);
+}
+
+td {
+  background: var(--panel-bg);
+  color: var(--text);
+}
+
+/* =========================================================
+   FOOTER — SEMPRE NO FUNDO
+   - margin-left para não ficar por baixo do sidebar fixo
+========================================================= */
+.footer {
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+  background: var(--panel-bg);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  position: relative;
+  z-index: 10;
+}
+
+/* fallback: if you prefer footer full width, remove margin-left/width above */
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+
+.footer-logo {
+  height: 28px;
+}
+
+.footer-nav a {
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: .7;
+}
+
+/* =========================================================
+   OUTROS
+========================================================= */
+.note {
+  font-size: 12px;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.small {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.actions {
+  text-align: right;
+}
+
+.save-btn {
+  padding: 8px 20px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.save-btn:hover {
+  background: #004c7f;
+}
+
+/* =========================================================
+   AJUSTES RESPONSIVOS SIMPLES
+========================================================= */
+@media (max-width: 900px) {
+  :root {
+    --sidebar-width: 200px;
+  }
+  .container {
+    margin-left: var(--sidebar-width);
+  }
+  .footer {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+}
+
+@media (max-width: 640px) {
+  .sidebar {
+    display: none;
+  }
+  .container {
+    margin-left: 0;
+    padding: calc(var(--header-height) + 8px) 12px 24px;
+  }
+  .footer {
+    margin-left: 0;
+    width: 100%;
+  }
+}

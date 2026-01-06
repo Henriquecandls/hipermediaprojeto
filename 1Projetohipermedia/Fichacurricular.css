@@ -1,0 +1,484 @@
+/* ============================================
+   RESET GERAL
+============================================ */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================
+   VARIÁVEIS (MODO CLARO POR OMISSÃO)
+============================================ */
+:root {
+  --blue: #1a67af;
+  --blue-hover: #00427f;
+
+  --bg: #f6f7f8;
+  --text: #222;
+
+  --sidebar-bg: #ededed;
+  --sidebar-border: #bbb;
+
+  --card-bg: #ffffff;
+  --card-border: #d2d2d2;
+
+  --input-bg: #ffffff;
+  --input-border: #c5c5c5;
+
+  --table-header-bg: #fff1e3;
+  --table-header-text: #222;
+
+  --gray: #e4e4e4;
+  --gray-dark: #555;
+
+  --header-height: 60px;
+}
+
+/* ============================================
+   TEMA ESCURO COM :has()
+============================================ */
+body:has(#theme-switch:checked) {
+  --bg: #121212;
+  --text: #f2f2f2;
+
+  --sidebar-bg: #1b1b1b;
+  --sidebar-border: #444;
+
+  --card-bg: #1e1e1e;
+  --card-border: #555;
+
+  --input-bg: #1b1b1b;
+  --input-border: #555;
+
+  --table-header-bg: #2a2a2a;
+  --table-header-text: #f2f2f2;
+
+  --gray: #1f1f1f;
+  --gray-dark: #c0c0c0;
+}
+
+/* ============================================
+   BODY
+============================================ */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ============================================
+   HEADER
+============================================ */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--blue);
+  color: white;
+  padding: 0 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Marca / logotipo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-img {
+  height: 40px;
+}
+
+.brand-logo {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.brand-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ============================================
+   NAVBAR SUPERIOR
+============================================ */
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 4px 0;
+  position: relative;
+  transition: opacity 0.25s ease;
+}
+
+/* Hover suave */
+.navbar a:hover {
+  opacity: 0.85;
+}
+
+/* Sub-linha animada */
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+/* Página atual ou hover */
+.navbar a:hover::after,
+.navbar a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* ============================================
+   HEADER RIGHT (TOGGLE + AVATAR)
+============================================ */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Avatar circular */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+/* ============================================
+   TOGGLE TEMA
+============================================ */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-label {
+  position: relative;
+  width: 44px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.toggle-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  border-radius: 11px;
+  transition: background 0.3s ease;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* Estado checked = tema escuro */
+#theme-switch:checked + label .toggle-bg {
+  background: var(--blue);
+}
+
+#theme-switch:checked + label .toggle-knob {
+  transform: translateX(22px);
+}
+
+/* ============================================
+   SIDEBAR
+============================================ */
+.sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 220px;
+  height: calc(100vh - var(--header-height));
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  border-bottom: 1px solid #c8c8c8;
+}
+
+body:has(#theme-switch:checked) .sidebar li {
+  border-bottom-color: #333;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+body:has(#theme-switch:checked) .sidebar a {
+  color: var(--text);
+}
+
+/* Hover no menu lateral */
+.sidebar a:hover {
+  background: #d6d6d6;
+}
+
+body:has(#theme-switch:checked) .sidebar a:hover {
+  background: #2a2a2a;
+}
+
+/* Submenus */
+.submenu {
+  display: none;
+}
+
+.has-submenu.open > .submenu {
+  display: block;
+}
+
+/* ============================================
+   CONTAINER / MAIN
+============================================ */
+.container {
+  padding-top: var(--header-height);
+}
+
+/* O main ocupa o espaço ao lado da sidebar */
+main {
+  margin-left: 220px;
+  padding: 20px;
+  min-height: calc(100vh - var(--header-height) - 60px); /* 60px = footer */
+}
+
+/* Secções de conteúdo (tipo cards) */
+.section {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.section h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.section h3 {
+  font-size: 14.5px;
+  margin-bottom: 8px;
+}
+
+/* ============================================
+   FORM ROWS
+============================================ */
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.form-row label {
+  font-size: 14px;
+}
+
+/* ============================================
+   TABELA (SEM CLASSE NO HTML)
+============================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 10px;
+  border: 1px solid #d5d5d5;
+}
+
+body:has(#theme-switch:checked) table {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+thead th {
+  background: var(--table-header-bg);
+  color: var(--table-header-text);
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+  border-bottom: 2px solid #d0d0d0;
+}
+
+thead th,
+tbody td {
+  padding: 7px 8px;
+  border-right: 1px solid #e0e0e0;
+}
+
+tbody td {
+  font-size: 13px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+/* Última coluna sem borda direita */
+thead th:last-child,
+tbody td:last-child {
+  border-right: none;
+}
+
+/* Última linha sem borda inferior */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Zebra suave */
+tbody tr:nth-child(even) {
+  background: #f7f7f7;
+}
+
+body:has(#theme-switch:checked) tbody tr:nth-child(even) {
+  background: #1a1a1a;
+}
+
+/* ============================================
+   MENSAGENS DE AVISO
+============================================ */
+.warning {
+  font-size: 13px;
+  color: #b00020;
+  margin-top: 4px;
+}
+
+/* ============================================
+   BOTÕES
+============================================ */
+button,
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #888;
+  background: linear-gradient(#ffffff, #ececec);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover,
+.btn:hover {
+  background: linear-gradient(#f3f3f3, #e3e3e3);
+}
+
+/* Em tema escuro, botão mais consistente */
+body:has(#theme-switch:checked) button,
+body:has(#theme-switch:checked) .btn {
+  background: var(--blue);
+  color: #fff;
+  border-color: #003764;
+}
+
+body:has(#theme-switch:checked) button:hover,
+body:has(#theme-switch:checked) .btn:hover {
+  background: var(--blue-hover);
+}
+
+/* ============================================
+   FORM ELEMENTS
+============================================ */
+select,
+input {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text);
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+footer.footer {
+  background: var(--gray);
+  border-top: 1px solid var(--card-border);
+  padding: 12px 20px;
+  font-size: 13px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  height: 28px;
+  object-fit: contain;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   ACESSIBILIDADE (FOCUS VISÍVEL)
+============================================ */
+a:focus,
+select:focus,
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}

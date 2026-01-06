@@ -1,0 +1,477 @@
+/* =========================================================
+   VARIÁVEIS (LIGHT MODE)
+========================================================= */
+:root {
+    --blue: #0a6ea8;
+    --blue-soft: #e9f3fb;
+    --border: #d0d7de;
+    --bg: #f4f6f8;
+    --panel-bg: #ffffff;
+    --grey: #f5f6f8;
+    --text-color: #333;
+
+    --color-header: #0a74ad;
+    --color-header-text: #fff;
+    --color-hover: #095f90;
+    --color-focus: #ffcc00;
+
+    --toggle-bg: #d0d0d0;
+    --toggle-bg-active: #4caf50;
+    --toggle-ball: #ffffff;
+}
+
+/* =========================================================
+   DARK MODE (ativado pelo toggle)
+========================================================= */
+:root:has(#theme-switch:checked) {
+    --blue: #4fa3e0;
+    --blue-soft: #2b2b2b;
+    --border: #555;
+    --bg: #1e1e1e;
+    --panel-bg: #2a2a2a;
+    --grey: #333;
+    --text-color: #e0e0e0;
+
+    --color-header: #003b5c;
+    --color-header-text: #e0e0e0;
+    --color-hover: #005a8c;
+    --color-focus: #ffd700;
+
+    --toggle-bg: #555555;
+    --toggle-bg-active: #81c784;
+    --toggle-ball: #ffffff;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+.header {
+    height: 72px;
+    background: var(--color-header);
+    color: var(--color-header-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.12);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.header-left img,
+.uma-logo {
+    height: 38px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-text .uma-title,
+.brand-text .title {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.brand-text .uma-subtitle,
+.brand-text .subtitle {
+    font-size: 13px;
+    opacity: .9;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.header-right a {
+    color: var(--color-header-text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity .2s ease;
+}
+
+.header-right a:hover {
+    opacity: .8;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--blue);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================================
+   DARK MODE TOGGLE
+========================================================= */
+.theme-switch {
+    position: relative;
+    width: 46px;
+    height: 24px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-switch .slider {
+    position: absolute;
+    inset: 0;
+    background: #cfd8dc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.theme-switch .slider::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: .25s;
+}
+
+.theme-switch input:checked + .slider {
+    background: var(--toggle-bg-active);
+}
+
+.theme-switch input:checked + .slider::before {
+    transform: translateX(22px);
+}
+
+/* =========================================================
+   LAYOUT FLEX
+========================================================= */
+.layout {
+    display: flex;
+    margin-top: 72px; /* espaço para header fixo */
+    min-height: calc(100vh - 72px);
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.sidebar {
+    width: 230px;
+    background: var(--panel-bg);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    flex-shrink: 0;
+    transition: all .3s ease;
+}
+
+/* Sidebar fixa ao header */
+.sidebar.fixed {
+    position: sticky;
+    top: 72px;
+    max-height: calc(100vh - 72px);
+}
+
+/* Sidebar sem posição fixa */
+.sidebar:not(.fixed) {
+    position: relative;
+    top: 0;
+    max-height: none;
+}
+
+/* LINKS SIDEBAR */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar > ul > li > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    font-size: 14px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.sidebar > ul > li > a:hover {
+    background: rgba(15,119,168,.06);
+}
+
+/* SUBMENU */
+.has-submenu > a::after {
+    content: "▸";
+    color: #666;
+    transition: transform .2s;
+}
+.has-submenu.open > a::after {
+    transform: rotate(90deg);
+    color: var(--blue);
+}
+
+.submenu {
+    display: none;
+    background: var(--panel-bg);
+    border-left: 3px solid var(--blue);
+}
+
+.has-submenu.open > .submenu {
+    display: block;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 28px;
+    font-size: 14px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    background: rgba(7,100,150,.06);
+}
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+.content {
+    flex: 1;
+    padding: 28px;
+    background: var(--bg);
+    overflow-y: auto;
+    /* alinhamento correto */
+    margin-left: 230px;
+}
+
+/* Ajuste se sidebar não for fixa */
+.sidebar:not(.fixed) ~ .content {
+    margin-left: 0;
+}
+
+/* =========================================================
+   BOXES / SECTIONS
+========================================================= */
+.box {
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.warning {
+    background: #eef3ff;
+    border: 1px solid #b7c8eb;
+    font-size: 13px;
+}
+
+/* =========================================================
+   LISTA ESQUERDA / INSTITUIÇÕES
+========================================================= */
+.instituicoes-panel {
+    width: 35%;
+    background: var(--grey);
+    border-right: 1px solid var(--border);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.instituicoes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.toggle {
+    font-size: 13px;
+    color: var(--blue);
+    cursor: pointer;
+}
+
+.toggle:hover {
+    text-decoration: underline;
+}
+
+.instituicoes-lista {
+    list-style: none;
+    max-height: 220px;
+    overflow-y: hidden;
+    padding-right: 6px;
+    transition: max-height 0.3s ease;
+}
+
+.instituicoes-lista.expandida {
+    max-height: 1000px;
+    overflow-y: auto;
+}
+
+.instituicoes-lista li {
+    padding: 6px 4px;
+    font-size: 14px;
+    border-bottom: 1px dashed var(--border);
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.instituicoes-lista li:hover {
+    background: var(--blue-soft);
+}
+
+.detalhe {
+    color: var(--blue);
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.detalhe:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   TABS
+========================================================= */
+.tabs {
+    display: flex;
+    gap: 6px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 16px;
+    background: var(--grey);
+    border-radius: 6px 6px 0 0;
+    border: 1px solid var(--border);
+    border-bottom: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tab:hover {
+    background: var(--blue-soft);
+}
+
+.tab.active {
+    background: var(--panel-bg);
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* =========================================================
+   FORMULÁRIOS / CAMPOS CINZENTOS
+========================================================= */
+.form-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr 120px 1fr;
+    gap: 12px 16px;
+    align-items: start;
+    margin-bottom: 25px;
+}
+
+.form-grid > div:nth-child(odd) {
+    text-align: right;
+    font-size: 13px;
+    color: var(--text-color);
+    padding-top: 8px;
+}
+
+.grey-box {
+    background: var(--grey);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: var(--text-color);
+    min-height: 40px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.grey-box.small {
+    min-height: 36px;
+}
+
+.grey-box.large {
+    min-height: 90px;
+}
+
+/* =========================================================
+   ACESSIBILIDADE (WCAG 2.1)
+========================================================= */
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+@media (max-width: 900px) {
+    .sidebar { display: none; }
+    .content { margin-left: 0; width: 100%; }
+
+    .form-grid {
+        grid-template-columns: 120px 1fr;
+    }
+
+    .instituicoes-panel {
+        width: 100%;
+        margin-bottom: 18px;
+    }
+}

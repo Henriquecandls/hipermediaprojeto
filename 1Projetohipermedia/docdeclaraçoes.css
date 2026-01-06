@@ -1,0 +1,445 @@
+/* =========================================================
+   VARIÁVEIS DE TEMA (UNIFICADAS)
+========================================================= */
+:root {
+  --blue: #0f77a8;
+  --blue-dark: #0b6b95;
+  --primary: #0072a8;
+  --primary-dark: #155fa0;
+  --panel-bg: #ffffff;
+  --border: #d0d0d0;
+  --gray: #666;
+  --bg: #f4f6f8;
+  --light: #ffffff;
+  --text: #222;
+  --muted: #6b6b6b;
+  --nav-hover: rgba(255,255,255,0.25);
+  --warning-bg: #fff3cd;
+  --warning-text: #856404;
+}
+
+/* ================= DARK MODE ================= */
+body:has(#theme-switch:checked) {
+  --bg: #121212;
+  --text: #f2f2f2;
+  --panel-bg: #1b1b1b;
+  --border: #444;
+  --gray: #9a9a9a;
+  --muted: #b5b5b5;
+  --nav-hover: rgba(255,255,255,0.18);
+}
+
+/* ================= BASE ================= */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================================
+   HEADER FIXO
+========================================================= */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 72px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  z-index: 2000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-img {
+  height: 48px;
+}
+
+.brand-logo {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.navbar {
+  display: flex;
+  gap: 22px;
+}
+
+.navbar a {
+  color: #fff;
+  font-size: 14px;
+  position: relative;
+  padding: 4px 0;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.navbar a:hover {
+  opacity: .85;
+  transform: translateY(-1px);
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width .25s ease;
+}
+
+.navbar a:hover::after,
+.navbar a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* =========================================================
+   TOGGLE DARK MODE
+========================================================= */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-label {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toggle-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  border-radius: 13px;
+  transition: background 0.3s ease;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+#theme-switch:checked + label .toggle-bg {
+  background: var(--blue);
+}
+
+#theme-switch:checked + label .toggle-knob {
+  transform: translateX(24px);
+}
+
+/* =========================================================
+   AVATAR
+========================================================= */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid rgba(255,255,255,.4);
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.sidebar {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  bottom: 0;
+  width: 230px;
+  background: var(--panel-bg);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  z-index: 500;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar > ul > li > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  font-size: 15px;
+  color: var(--text);
+  transition: background .25s ease, color .25s ease;
+}
+
+.sidebar > ul > li > a:hover {
+  background: rgba(15,119,168,.06);
+}
+
+.has-submenu > a::after {
+  content: "▸";
+  color: var(--gray);
+  transition: transform 0.2s;
+}
+
+.has-submenu.open > a::after {
+  transform: rotate(90deg);
+  color: var(--blue);
+}
+
+.submenu {
+  display: none;
+  background: var(--panel-bg);
+  border-left: 3px solid var(--blue);
+}
+
+.has-submenu.open > .submenu {
+  display: block;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 28px;
+  font-size: 14px;
+  color: var(--text);
+  transition: background .25s ease, color .25s ease;
+}
+
+.submenu li a:hover {
+  background: rgba(7,100,150,.06);
+}
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 230px;
+  margin-top: 72px;
+  padding: 30px 50px;
+  min-height: calc(100vh - 72px - 60px);
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   CURSO
+========================================================= */
+.course-bar {
+  background: var(--light);
+  padding: 15px 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+  margin-bottom: 30px;
+}
+
+.course-bar select {
+  width: 100%;
+  padding: 10px;
+}
+
+/* =========================================================
+   TEXTO
+========================================================= */
+h2 {
+  text-align: center;
+  color: var(--blue);
+  margin-bottom: 15px;
+}
+
+.desc {
+  max-width: 900px;
+  margin: 0 auto 35px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.card {
+  width: 300px;
+  padding: 30px 20px;
+  background: var(--light);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 8%);
+  text-align: center;
+}
+
+.icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+button {
+  padding: 8px 28px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button.primary {
+  background: #1976d2;
+  color: var(--light);
+}
+
+button.primary:hover {
+  background: var(--primary-dark);
+}
+
+button:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   ALERTA
+========================================================= */
+.alert {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  background: var(--warning-bg);
+  color: var(--warning-text);
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer {
+  margin-left: 230px;
+  background: var(--panel-bg);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  font-size: 13px;
+  height: 60px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+
+.footer-logo {
+  height: 28px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-nav a {
+  color: var(--text);
+  font-size: 13px;
+  transition: opacity .2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: .7;
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+a:focus,
+select:focus,
+input[type="radio"]:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   DARK MODE — AJUSTES
+========================================================= */
+body:has(#theme-switch:checked) .sidebar > ul > li > a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+body:has(#theme-switch:checked) .submenu li a:hover {
+  background: rgba(255,255,255,0.10);
+}
+
+body:has(#theme-switch:checked) a {
+  color: var(--text);
+}

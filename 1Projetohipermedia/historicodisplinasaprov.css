@@ -1,0 +1,157 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg, #f4f4f4);
+    color: var(--text-color, #222);
+}
+
+/* HEADER */
+header, .header{
+    background: linear-gradient(90deg, var(--blue, #0f77a8), var(--blue-dark, #0b6b95));
+    color: var(--panel-bg, #ffffff);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img, .header-left img {
+    height: 38px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user img {
+    border-radius: 50%;
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 230px;
+    background: var(--sidebar-bg, #e6e6e6);
+    min-height: calc(100vh - 72px);
+    border-right: 1px solid var(--border, #d0d0d0);
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    border-bottom: 1px solid #c8c8c8;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sidebar a:hover {
+    background: #d6d6d6;
+}
+
+/* SUBMENU */
+.submenu {
+    display: none;
+    background: #f0f0f0;
+}
+
+.submenu a {
+    padding-left: 32px;
+    font-size: 13px;
+}
+
+.has-submenu.open > .submenu {
+    display: block;
+}
+
+/* MAIN */
+main, .content {
+    flex: 1;
+    padding: 20px;
+    background: var(--panel-bg, #ffffff);
+    color: var(--text-color, #222);
+}
+
+/* SECTIONS */
+.section {
+    background: var(--panel-bg, #ffffff);
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border, #ccc);
+}
+
+h2, h3 {
+    color: var(--blue-dark, #0b6aa2);
+    margin-bottom: 10px;
+}
+
+/* FORM */
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+label {
+    width: 100px;
+    font-weight: bold;
+}
+
+select, input {
+    padding: 5px;
+}
+
+button {
+    background: var(--blue, #0f77a8);
+    color: var(--panel-bg, #fff);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid var(--border, #ccc);
+    padding: 8px;
+    font-size: 13px;
+}
+
+th {
+    background: color-mix(in srgb, var(--blue, #0f77a8) 10%, #fde9d9);
+    color: #111;
+    font-weight:700;
+}
+
+/* WARNING */
+.warning {
+    background: #fff4cd;
+    border: 1px solid #ffe59e;
+    padding: 10px;
+    font-size: 13px;
+    color: #6b4b00;
+}

@@ -1,0 +1,400 @@
+/* =========================================================
+   VARIÁVEIS DE TEMA
+========================================================= */
+:root {
+  --blue: #0f77a8;
+  --blue-dark: #0b6b95;
+  --panel-bg: #ffffff;
+  --border: #d0d0d0;
+  --gray: #666;
+  --bg: #f4f6f8;
+  --text: #222;
+  --muted: #6b6b6b;
+  --nav-hover: rgba(255,255,255,0.25);
+}
+
+body:has(#theme-switch:checked) {
+  --bg: #121212;
+  --text: #f2f2f2;
+  --panel-bg: #1b1b1b;
+  --border: #444;
+  --gray: #9a9a9a;
+  --muted: #b5b5b5;
+  --nav-hover: rgba(255,255,255,0.18);
+}
+
+/* RESET */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+a:focus,
+select:focus,
+input[type="radio"]:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   HEADER FIXO
+========================================================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  z-index: 2000;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-img {
+  height: 48px;
+}
+
+.brand-logo {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.navbar {
+  display: flex;
+  gap: 22px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+  padding: 4px 0;
+  transition: opacity .25s ease;
+}
+
+.navbar a:hover {
+  opacity: .8;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width .25s ease;
+}
+
+.navbar a:hover::after,
+.navbar a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* =========================================================
+   TOGGLE DARK MODE
+========================================================= */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-label {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.toggle-bg {
+  position: absolute;
+  inset: 0;
+  background: #ccc;
+  border-radius: 13px;
+  transition: background .3s;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform .3s;
+}
+
+#theme-switch:checked + label .toggle-bg {
+  background: var(--blue);
+}
+
+#theme-switch:checked + label .toggle-knob {
+  transform: translateX(24px);
+}
+
+/* =========================================================
+   AVATAR
+========================================================= */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid rgba(255,255,255,.4);
+}
+
+/* =========================================================
+   LAYOUT (CORRIGIDO DEFINITIVO)
+========================================================= */
+.layout {
+  display: flex;
+  margin-top: 72px;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.sidebar {
+  width: 230px;
+  background: var(--panel-bg);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  position: sticky;
+  top: 72px;
+  flex-shrink: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li {
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar > ul > li > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  font-size: 15px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.sidebar > ul > li > a:hover {
+  background: rgba(15,119,168,.06);
+}
+
+.has-submenu > a::after {
+  content: "▸";
+  color: var(--gray);
+  transition: transform .2s;
+}
+
+.has-submenu.open > a::after {
+  transform: rotate(90deg);
+  color: var(--blue);
+}
+
+.submenu {
+  display: none;
+}
+
+.has-submenu.open > .submenu {
+  display: block;
+}
+
+.submenu li a {
+  padding: 10px 28px;
+  font-size: 14px;
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.submenu li a:hover {
+  background: rgba(7,100,150,.06);
+}
+
+/* =========================================================
+   CONTEÚDO (FLEX COLUMN)
+========================================================= */
+.content {
+  flex: 1;
+  padding: 24px;
+  background: var(--panel-bg);
+  color: var(--text);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   FILTRO
+========================================================= */
+.filter {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  background: #f7f9fb;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.filter label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.filter select {
+  padding: 7px 10px;
+  border: 1px solid #cfd8e3;
+  border-radius: 4px;
+  min-width: 240px;
+}
+
+.filter button {
+  padding: 7px 18px;
+  background: #0a6ea8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   TABELA
+========================================================= */
+.docs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.docs-table th {
+  background: #f0f4f8;
+  border: 1px solid #d0d7de;
+  padding: 8px;
+  text-align: left;
+}
+
+.docs-table td {
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+}
+
+.docs-table tr:hover {
+  background: #f7fbff;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer {
+  margin-left: 240px;
+  border-top: 1px solid var(--card-border);
+  padding: 12px 20px;
+  font-size: 13px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text);
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  height: 28px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 0.7;
+}
+
+/* =========================================================
+   DARK MODE AJUSTES
+========================================================= */
+body:has(#theme-switch:checked) .filter {
+  background: #1f1f1f;
+  border-color: #444;
+}
+
+body:has(#theme-switch:checked) .docs-table th {
+  background: #222;
+  border-color: #444;
+}
+
+body:has(#theme-switch:checked) .docs-table td {
+  background: #1a1a1a;
+  border-color: #444;
+}
